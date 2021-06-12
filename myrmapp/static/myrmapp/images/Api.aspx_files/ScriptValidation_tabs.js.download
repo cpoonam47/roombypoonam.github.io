@@ -1,0 +1,1286 @@
+﻿/*
+//$Author: Saiprasad.c $
+//$Date: 9/19/11 5:32p $
+//$Header: /RnD/Products/mVaayoo/.Net/mVaayoo/mVaayoo/JS/ScriptValidation_tabs.js 35    9/19/11 5:32p Saiprasad.c $
+//$Modtime: 9/19/11 3:50p $
+//$Revision: 35 $
+*/
+  // JScript File
+//for Flash Message
+function TextMsgLength1(Editortext,showTextLength,evt)
+{
+//debugger;
+//alert('for flash');
+ var oEdit=document.getElementById(Editortext).value;
+ var OShowTextLength=document.getElementById(showTextLength);
+ var charCode=(evt.which)? evt.which : event.keyCode;
+ document.getElementById('ctl00_cphMain_txtPreview').style.display = '';    
+
+ document.getElementById('ctl00_cphMain_txtPreview').innerText ='';
+ document.getElementById('ctl00_cphMain_txtPreview').innerHTML = document.getElementById('ctl00_cphMain_txtFlashMsg').value;
+ document.getElementById('ctl00_cphMain_txtPreview').innerText =oEdit;
+ //document.getElementById(Editortext).innerText;
+ //document.getElementById('ctl00_cphMain_txtPreview').innerHTML = document.getElementById('ctl00_cphMain_txtFlashMsg').value;
+
+  if (charCode == 86 || charCode == 67) return;
+     if(charCode==8 || charCode==46)
+     {
+      OShowTextLength.value = GetStringLength(oEdit);
+      if (OShowTextLength.value >160 && oEdit.length>0 )
+      { 
+        //alert('Message exceeds '+OShowTextLength.value+' Characters') ; 
+        //alert('Message exceeds 160 Characters') ; 
+        //errtext.value="Message exceeds 160 Characters";
+     if(OShowTextLength.value >160 && OShowTextLength.value <=306)
+     {
+     document.getElementById('divFls').innerHTML="Message will consume 2 Credits";return;
+     }
+     else if(OShowTextLength.value >306 && OShowTextLength.value <=459)
+     {
+     document.getElementById('divFls').innerHTML="Message will consume 3 Credits";return;
+     }
+     else if(OShowTextLength.value >459 && OShowTextLength.value <=612)
+     {
+     document.getElementById('divFls').innerHTML="Message will consume 4 Credits";return;
+     }
+     else if(OShowTextLength.value >612 && OShowTextLength.value <=765)
+     {
+     document.getElementById('divFls').innerHTML="Message will consume 5 Credits";return;
+     }
+     else if(OShowTextLength.value >765 && OShowTextLength.value <=918)
+     {
+     document.getElementById('divFls').innerHTML="Message will consume 6 Credits";return;
+     }
+     else if(OShowTextLength.value >918 && OShowTextLength.value <=1072)
+     {
+     document.getElementById('divFls').innerHTML="Message will consume 7 Credits";return;
+     }
+     else
+     {
+     document.getElementById('divFls').innerHTML="";return;
+     }
+  } 
+else
+{
+
+document.getElementById('divFls').innerHTML="";
+}
+}
+else
+{  OShowTextLength.value = GetStringLength(oEdit);
+ if (OShowTextLength.value >160 && oEdit.length>0 )
+{ 
+//alert('Message exceeds '+OShowTextLength.value+' Characters') ; 
+//alert('Message exceeds 160 Characters') ; 
+//errtext.value="Message exceeds 160 Characters";
+if(OShowTextLength.value >160 && OShowTextLength.value <=306)
+    {
+    document.getElementById('divFls').innerHTML="Message will consume 2 Credits";return;
+    }
+    else if(OShowTextLength.value >306 && OShowTextLength.value <=459)
+    {
+     document.getElementById('divFls').innerHTML="Message will consume 3 Credits";return;
+    }
+    else if(OShowTextLength.value >459 && OShowTextLength.value <=612)
+    {
+     document.getElementById('divFls').innerHTML="Message will consume 4 Credits";return;
+    }
+     else if(OShowTextLength.value >612 && OShowTextLength.value <=765)
+    {
+     document.getElementById('divFls').innerHTML="Message will consume 5 Credits";return;
+    }
+       else if(OShowTextLength.value >765 && OShowTextLength.value <=918)
+    {
+     document.getElementById('divFls').innerHTML="Message will consume 6 Credits";return;
+    }
+       else if(OShowTextLength.value >918 && OShowTextLength.value <=1072)
+    {
+     document.getElementById('divFls').innerHTML="Message will consume 7 Credits";return;
+    }
+    else
+    {
+    document.getElementById('divFls').innerHTML="";return;
+    }
+} 
+}
+}
+//--------------
+ //Text and Flash Msg scripts
+  function TextMsgLength(Editortext,showTextLength,evt)
+{
+//debugger;
+//alert('text msg srinu');
+document.getElementById('ctl00_cphMain_txtPreview').style.display = '';
+document.getElementById('ctl00_cphMain_txtPicPreview').style.display = 'none';
+var oEdit=document.getElementById(Editortext).value;
+var OShowTextLength=document.getElementById(showTextLength);
+var charCode=(evt.which)? evt.which : event.keyCode;
+
+
+document.getElementById('ctl00_cphMain_txtPreview').innerText ='';
+//document.getElementById('divAlert').innerHTML ='';
+//document.getElementById('ctl00_cphMain_txtPreview').value =document.getElementById(Editortext).value;
+//old
+//document.getElementById('ctl00_cphMain_txtPreview').innerHTML = document.getElementById('ctl00_cphMain_txtMsg').value;
+
+//changes 
+if (document.body.innerHTML) {
+var message = document.getElementById('ctl00_cphMain_txtPreview').innerHTML = document.getElementById('ctl00_cphMain_txtMsg').value;
+document.getElementById('ctl00_cphMain_txtPreview').innerText =message;
+} else {
+var message = document.getElementById('ctl00_cphMain_txtPreview').value =oEdit;
+//document.getElementById('ctl00_cphMain_txtPreview').innerText =document.getElementById(Editortext).innerText;
+document.getElementById('ctl00_cphMain_txtPreview').textContent =message;
+} 
+//document.getElementById('ctl00_cphMain_txtPicPreview').style.display = 'none';
+//document.getElementById('ctl00_cphMain_txtPreview').innerText =document.getElementById(Editortext).innerText;
+//new
+//old
+//document.getElementById('ctl00_cphMain_txtPreview').innerText =message;
+
+//document.getElementById(Editortext).value;
+//document.getElementById('ctl00_cphMain_txtPreview').innerHTML =document.getElementById(Editortext).value;
+
+if (charCode == 86 || charCode == 67) return;
+if(document.getElementById('ctl00_cphMain_ddlLanguage').value =="English")
+{
+    if(charCode==8 || charCode==46 || charCode == 90)
+    {   
+        OShowTextLength.value = GetStringLength(oEdit);
+        if (OShowTextLength.value >160 && oEdit.length>0 )
+        { 
+    //alert('Message exceeds '+OShowTextLength.value+' Characters') ; 
+    //alert('Message exceeds 160 Characters') ; 
+    //errtext.value="Message exceeds 160 Characters";
+
+
+            if(OShowTextLength.value >160 && OShowTextLength.value <=306)
+            {
+            document.getElementById('divAlert').innerHTML="Message will consume 2 Credits";return;
+            }
+            else if(OShowTextLength.value >306 && OShowTextLength.value <=459)
+            {
+             document.getElementById('divAlert').innerHTML="Message will consume 3 Credits";return;
+            }
+            else if(OShowTextLength.value >459 && OShowTextLength.value <=612)
+            {
+             document.getElementById('divAlert').innerHTML="Message will consume 4 Credits";return;
+            }
+             else if(OShowTextLength.value >612 && OShowTextLength.value <=765)
+            {
+             document.getElementById('divAlert').innerHTML="Message will consume 5 Credits";return;
+            }
+               else if(OShowTextLength.value >765 && OShowTextLength.value <=918)
+            {
+             document.getElementById('divAlert').innerHTML="Message will consume 6 Credits";return;
+            }
+               else if(OShowTextLength.value >918 && OShowTextLength.value <=1072)
+            {
+             document.getElementById('divAlert').innerHTML="Message will consume 7 Credits";return;
+            }
+             else if(OShowTextLength.value >1073)
+            {
+               document.getElementById('divAlert').innerHTML ="Message exceeds 1073 Characters";return; 
+            }
+            else
+            {
+            document.getElementById('divAlert').innerHTML="";return;
+            }
+        } 
+        else
+        {
+            document.getElementById('divAlert').innerHTML="";
+        }
+    }
+    else
+    {  
+       OShowTextLength.value = GetStringLength(oEdit);
+     
+        if (OShowTextLength.value >160 && oEdit.length>0 && document.getElementById('ctl00_cphMain_ddlLanguage').value =="English")
+        { 
+    //alert('Message exceeds '+OShowTextLength.value+' Characters') ; 
+    //alert('Message exceeds 160 Characters') ; 
+    //errtext.value="Message exceeds 160 Characters";
+            if(OShowTextLength.value >160 && OShowTextLength.value <=306)
+            {
+            document.getElementById('divAlert').innerHTML="Message will consume 2 Credits";return;
+            }
+            else if(OShowTextLength.value >306 && OShowTextLength.value <=459)
+            {
+             document.getElementById('divAlert').innerHTML="Message will consume 3 Credits";return;
+            }
+            else if(OShowTextLength.value >459 && OShowTextLength.value <=612)
+            {
+             document.getElementById('divAlert').innerHTML="Message will consume 4 Credits";return;
+            }
+             else if(OShowTextLength.value >612 && OShowTextLength.value <=765)
+            {
+             document.getElementById('divAlert').innerHTML="Message will consume 5 Credits";return;
+            }
+               else if(OShowTextLength.value >765 && OShowTextLength.value <=918)
+            {
+             document.getElementById('divAlert').innerHTML="Message will consume 6 Credits";return;
+            }
+               else if(OShowTextLength.value >918 && OShowTextLength.value <=1072)
+            {
+             document.getElementById('divAlert').innerHTML="Message will consume 7 Credits";return;
+            }
+            else if( OShowTextLength.value >1073)
+            {
+             document.getElementById('divAlert').innerHTML="Message exceeds 1073 Characters";return;
+            }
+            
+            else
+            {
+            document.getElementById('divAlert').innerHTML="";return;
+            }
+        }
+     
+    }
+}
+if(document.getElementById('ctl00_cphMain_ddlLanguage').value !="English")
+{
+    
+//    else if(OShowTextLength.value >459 && OShowTextLength.value <=612)
+//    {
+//     document.getElementById('divAlert').innerHTML="Message will consume 4 Credits";return;
+//    }
+//     else if(OShowTextLength.value >612 && OShowTextLength.value <=765)
+//    {
+//     document.getElementById('divAlert').innerHTML="Message will consume 5 Credits";return;
+//    }
+//       else if(OShowTextLength.value >765 && OShowTextLength.value <=918)
+//    {
+//     document.getElementById('divAlert').innerHTML="Message will consume 6 Credits";return;
+//    }
+//       else if(OShowTextLength.value >918 && OShowTextLength.value <=1072)
+//    {
+//     document.getElementById('divAlert').innerHTML="Message will consume 7 Credits";return;
+//    }
+    
+    if(charCode==8 || charCode==46)
+    {
+        OShowTextLength.value = GetStringLength(oEdit);
+        OShowTextLength.value = parseInt(OShowTextLength.value) * 4;
+        var hCount = parseInt(OShowTextLength.value) / 268;
+        if((parseInt(OShowTextLength.value) % 268)>0 && parseInt(OShowTextLength.value) > 268)
+            hCount = hCount + 1;
+        OShowTextLength.value = parseInt(OShowTextLength.value) + (parseInt(hCount) * 12); 
+        if(OShowTextLength.value >280 && OShowTextLength.value <=564)
+        {
+            document.getElementById('divAlert').innerHTML="Message will consume 2 Credits";return;
+        }
+        else if(OShowTextLength.value >564 && OShowTextLength.value <=676)
+        {
+            document.getElementById('divAlert').innerHTML="Message will consume 3 Credits";return;
+        }
+        else if(OShowTextLength.value >676)
+        {
+            document.getElementById('divAlert').innerHTML ="Message exceeds 680 Characters";return; 
+        }
+        else
+        {
+            document.getElementById('divAlert').innerHTML="";return;
+        }
+    }
+    else
+    {
+        OShowTextLength.value = GetStringLength(oEdit);
+        OShowTextLength.value = parseInt(OShowTextLength.value) * 4;
+        var hCount = parseInt(OShowTextLength.value) / 268;
+        if((parseInt(OShowTextLength.value) % 268)>0 && parseInt(OShowTextLength.value) > 268)
+            hCount = hCount + 1;
+        OShowTextLength.value = parseInt(OShowTextLength.value) + (parseInt(hCount) * 12);
+     
+      //if(parseInt(OShowTextLength.value)>280)
+      //document.getElementById('divAlert').innerHTML ="Message exceeds 280 Characters"; 
+
+//    if(OShowTextLength.value >70 && OShowTextLength.value <=141)
+//     {
+//     document.getElementById('divAlert').innerHTML="Message will consume 2 Credits";return;
+//     }
+//     else if(OShowTextLength.value >141 && OShowTextLength.value <=190)
+//     {
+//      document.getElementById('divAlert').innerHTML="Message will consume 3 Credits";return;
+//     }
+//     else if(OShowTextLength.value >191 && OShowTextLength.value <=280)
+//     {
+//     document.getElementById('divAlert').innerHTML="Message will consume 4 Credits";return;
+//     }
+//     else if(parseInt(OShowTextLength.value)>281)
+//     {
+//       document.getElementById('divAlert').innerHTML ="Message exceeds 281 Characters"; 
+//     }
+
+        if(OShowTextLength.value >280 && OShowTextLength.value <=564)
+        {
+            document.getElementById('divAlert').innerHTML="Message will consume 2 Credits";return;
+        }
+        else if(OShowTextLength.value >564 && OShowTextLength.value <=676)
+        {
+            document.getElementById('divAlert').innerHTML="Message will consume 3 Credits";return;
+        }
+        else if(OShowTextLength.value >676)
+        {
+            document.getElementById('divAlert').innerHTML ="Message exceeds 680 Characters";return; 
+        }
+        else
+        {
+            document.getElementById('divAlert').innerHTML="";return;
+        }
+    }
+}
+} 
+/* function TextMsgLength(Editortext,showTextLength,evt)
+{
+var oEdit=document.getElementById(Editortext).value;var OShowTextLength=document.getElementById(showTextLength);
+var charCode=(evt.which)? evt.which : event.keyCode;document.getElementById('ctl00_cphMain_txtPreview').innerText ='';
+document.getElementById('ctl00_cphMain_txtPreview').innerText = document.getElementById(Editortext).value;
+if (charCode == 86 || charCode == 67) return;
+if(charCode==8 || charCode==46)
+{   OShowTextLength.value = GetStringLength(oEdit);
+  if (OShowTextLength.value >160 && oEdit.length>0 ){document.getElementById('divAlert').innerHTML ="Message exceeds 160 Characters"; }
+}
+else
+{  OShowTextLength.value = GetStringLength(oEdit);
+  if (OShowTextLength.value >160 && oEdit.length>0 )
+  {
+//alert('Message exceeds '+OShowTextLength.value+' Characters') ; 
+  document.getElementById('divAlert').innerHTML ="Message exceeds 160 Characters";
+  } 
+}
+if(document.getElementById('ctl00_cphMain_ddlLanguage').value !="English")
+{
+    OShowTextLength.value = parseInt(OShowTextLength.value) * 4;
+    var hCount = parseInt(OShowTextLength.value) / 268;
+    if((parseInt(OShowTextLength.value) % 268)>0 && parseInt(OShowTextLength.value) > 268)
+        hCount = hCount + 1;
+       OShowTextLength.value = parseInt(OShowTextLength.value) + (parseInt(hCount) * 12);
+       if(parseInt(OShowTextLength.value)>280)
+       document.getElementById('divAlert').innerHTML ="Message exceeds 280 Characters";       
+}
+}*/
+
+function GetStringLength(str)
+{
+var count =0;
+for (var i=0;i<str.length;i++)
+{
+var strChar = str.charAt(i); 
+if (strChar =="}" || strChar == "{" || strChar == "]" || strChar == "[" || strChar == "|" || strChar == "^" || strChar == "~"  || strChar == "\\" )  
+count = count+2;  
+else
+count = count+1; 
+} 
+return count;
+}
+// For Pic Msgs 
+
+ function SinglePicSelection(selObj) 
+  {        
+     // alert('single pic');
+      // var items=document.Form1 ; //your form name        
+       document.getElementById('ctl00_cphMain_txtPreview').style.display = 'none';
+        document.getElementById('ctl00_cphMain_txtPicPreview').style.display = '';
+           for(var i=0;i<document.forms[0].elements.length;i++) 
+            {
+              elm = document.forms[0].elements[i];             
+            if (elm.type == 'radio')//detect radio button
+            {if(document.forms[0].elements[i].id.indexOf('dlPicMsg')>-1)document.forms[0].elements[i].checked=false;}
+            } 
+             selObj.checked=true; 
+             if(trim(selObj.value).length >0)
+            {    
+              var array2 = selObj.value.split("\\\\") ;             
+             var img = document.createElement("IMG");
+	         img.src = "http://www.mVaayoo.com//mVaayooPicImgs//"+array2[4].replace("otb","gif"); 
+	        var y = document.getElementById('ctl00_cphMain_txtPicPreview'), child;
+            while(child=y.firstChild)
+            y.removeChild(child);
+	        document.getElementById('ctl00_cphMain_txtPicPreview').appendChild(img);
+	  
+	        } 
+}
+
+function SetSelectedPic()
+{   
+ // debugger;
+ // alert('poc')
+ //Newly 2 below lines addd by Rohn on 25 Nov 2010
+ document.getElementById('ctl00_cphMain_txtPreview').style.display = 'none';
+ document.getElementById('ctl00_cphMain_txtPicPreview').style.display = '';
+ 
+  var  selObj = ''; 
+  for(var i=0;i<document.forms[0].elements.length;i++) 
+    { elm = document.forms[0].elements[i];             
+       if (elm.type == 'radio')//detect radio button
+       {if(document.forms[0].elements[i].id.indexOf('dlPicMsg')>-1)//datalist name
+          {if(document.forms[0].elements[i].checked){selObj = document.forms[0].elements[i].value ; break;}}                                 
+       }
+     }
+   if(selObj.length >0)
+   {  var array2 = selObj.split("\\\\") ;var img = document.createElement("IMG");
+	  img.src = "http://www.mVaayoo.com//mVaayooPicImgs//"+array2[4].replace("otb","gif"); var y = document.getElementById('ctl00_cphMain_txtPreview'), child;
+      while(child=y.firstChild)    
+      y.removeChild(child);
+	  document.getElementById('ctl00_cphMain_txtPreview').appendChild(img);
+   }  
+   else
+//   document.getElementById('ctl00_cphMain_txtPreview').value  = '';
+  document.getElementById('ctl00_cphMain_txtPreview').innerHTML  = '';
+}
+
+// For VCard Msgs
+function vCardPreview()
+{   
+//debugger;
+//alert('BusinessCard');
+//Newly 1 below lines addd by Rohn on 25 Nov 2010
+document.getElementById('ctl00_cphMain_txtPreview').style.display = '';
+
+var preview = "";   var finalPreview = "";preview =document.getElementById('ctl00_cphMain_txtNameVCard').value;
+  if(trim(document.getElementById('ctl00_cphMain_txtNameVCard').value).length >0)preview = preview+ "\n";
+  finalPreview += preview;  
+  preview = document.getElementById('ctl00_cphMain_txtMobileVCard').value;
+  if(trim(document.getElementById('ctl00_cphMain_txtMobileVCard').value).length >0)preview = preview+ "\n";
+  finalPreview += preview;  
+  preview = document.getElementById('ctl00_cphMain_txtEmailVCard').value;
+  if(trim(document.getElementById('ctl00_cphMain_txtEmailVCard').value).length >0)preview = preview+ "\n ";
+  finalPreview += preview;  
+   preview = document.getElementById('ctl00_cphMain_txtPhoneVCard').value;
+  if(trim(document.getElementById('ctl00_cphMain_txtPhoneVCard').value).length >0)preview =preview ;
+  finalPreview += preview;  
+   
+   //Newly if condition added by Rohn on 25 Nov 2010
+   if(!document.all)
+   {
+   document.getElementById('ctl00_cphMain_txtPreview').innerHTML ='';     
+        document.getElementById('ctl00_cphMain_txtPreview').innerHTML = trim(finalPreview);
+  }
+  else
+  {
+  document.getElementById('ctl00_cphMain_txtPreview').value =''; 
+    document.getElementById('ctl00_cphMain_txtPreview').value = trim(finalPreview);
+    }
+}
+
+//For Poll and contest
+
+function GetCoutof()
+{ 
+
+var Optid='';
+var OptDesid='';
+var Tot = 0 ;
+var Length= 0;
+var preview = "";
+var finalPreview = "";
+var Temp = "";
+
+preview = document.getElementById('ctl00_cphMain_txtHdrMsg').value.replace("\r\n","\n");
+if (document.getElementById('ctl00_cphMain_txtHdrMsg').value.length > 0)
+ preview =preview+"\n";
+finalPreview += preview;
+
+
+preview = document.getElementById('ctl00_cphMain_txtContetsQuestion').value.replace("\r\n","\n");
+if (document.getElementById('ctl00_cphMain_txtContetsQuestion').value.length > 0)
+ preview =preview+"\n";
+ finalPreview += preview;
+ 
+var num;
+
+ var TempOptions = "";
+if(document.getElementById('ctl00_cphMain_dlstOptions') != null)
+{
+var id = parseInt(document.getElementById('ctl00_cphMain_dlstOptions').rows.length);
+
+for(var i=0;i<=id-1;i++)
+{
+if(i>=0 && i<=6)
+{
+num='0'+i;
+}
+
+ preview = trim(document.getElementById('ctl00_cphMain_dlstOptions_ctl'+num+'_txtOption').value).replace("\r\n","\n");
+ if  (document.getElementById('ctl00_cphMain_dlstOptions_ctl'+num+'_txtOption').value.length > 0)
+ {
+ preview = preview+") "; 
+  Temp +=preview;
+ } 
+ finalPreview += preview;
+
+ preview = trim(document.getElementById('ctl00_cphMain_dlstOptions_ctl'+num+'_txtDesc').value).replace("\r\n","\n");
+ if (document.getElementById('ctl00_cphMain_dlstOptions_ctl'+num+'_txtDesc').value.length > 0)
+ {  
+   preview =preview+ " "; 
+ } 
+ finalPreview += preview;
+}
+}
+//finalPreview = finalPreview.replace(" ","")
+//Length =document.getElementById('ctl00_cphMain_tbcCompose_tbpPollContests_txtFooterMsg').value.length;
+preview = document.getElementById('ctl00_cphMain_txtFooterMsg').value.replace("\r\n","\n");
+if (document.getElementById('ctl00_cphMain_txtFooterMsg').value.length > 0 && trim(Temp).length >0)
+ preview = "\n"+preview;
+finalPreview += preview;
+//Tot += Length;
+
+
+//document.getElementById('ctl00_cphMain_tbcCompose_tbpPollContests_txtPollCount').value=Tot; 
+
+document.getElementById('ctl00_cphMain_txtPreview').value=finalPreview.replace("\r\n","\n"); 
+document.getElementById('ctl00_cphMain_txtPollCount').value=GetStringLength(finalPreview); 
+
+}
+//new function added srinu
+//function  setSettings(type)
+//{ 
+//   debugger;
+//   alert('setSettings');
+//   if(type =='contacts')
+//   {
+//   document.getElementById('ctl00_cphMain_divContacts').style.display = '';
+//   document.getElementById('ctl00_cphMain_divExcel').style.display = 'none';
+//   document.getElementById('ctl00_cphMain_btnSave').style.display ='';
+//    //document.getElementById('ctl00_cphMain_rbtnTextMsg').disabled = false;
+//   // document.getElementById('ctl00_cphMain_rbtnPicMsgMsg').disabled = false;
+//   // document.getElementById('ctl00_cphMain_rbtnVCardMsg').disabled = false;
+//   // document.getElementById('ctl00_cphMain_rbtnFlashMsg').disabled = false;
+//   }
+//   else
+//   {
+//    document.getElementById('ctl00_cphMain_divContacts').style.display = 'none';
+//    document.getElementById('ctl00_cphMain_divExcel').style.display = '';
+//    document.getElementById('ctl00_cphMain_btnSave').style.display ='none';
+//   // document.getElementById('ctl00_cphMain_rbtnTextMsg').disabled = true;
+//   // document.getElementById('ctl00_cphMain_rbtnPicMsgMsg').disabled = true;
+//   // document.getElementById('ctl00_cphMain_rbtnVCardMsg').disabled = true;
+//   // document.getElementById('ctl00_cphMain_rbtnFlashMsg').disabled = true;
+//   }
+
+
+// end
+
+
+
+function setDefaultSettings(type)
+{ 
+  //debugger;
+  // alert('setDefaultSettings');
+   if(type =='contacts')
+   {
+   document.getElementById('ctl00_cphMain_divContacts').style.display = '';
+   if(document.getElementById('ctl00_cphMain_divExcel')!=null)
+   document.getElementById('ctl00_cphMain_divExcel').style.display = 'none';
+   if(document.getElementById('ctl00_cphMain_btnSave')!=null)
+   document.getElementById('ctl00_cphMain_btnSave').style.display ='';
+ //   document.getElementById('ctl00_cphMain_rbtnTextMsg').disabled = false;
+ //   document.getElementById('ctl00_cphMain_rbtnPicMsgMsg').disabled = false;
+ //   document.getElementById('ctl00_cphMain_rbtnVCardMsg').disabled = false;
+    if(document.getElementById('ctl00_cphMain_rbtnFlashMsg')!=null)
+    document.getElementById('ctl00_cphMain_rbtnFlashMsg').disabled = false;
+    document.getElementById('ctl00_cphMain_trButtons').style.display = '';
+   document.getElementById('ctl00_cphMain_tblMsgDisp').style.display = '';
+   document.getElementById('ctl00_cphMain_divMsg').style.display = '';
+   }
+   else
+   {
+    document.getElementById('ctl00_cphMain_divContacts').style.display = 'none';
+    document.getElementById('ctl00_cphMain_divExcel').style.display = '';
+    document.getElementById('ctl00_cphMain_btnSave').style.display ='none';
+  //  document.getElementById('ctl00_cphMain_rbtnTextMsg').disabled = true;
+ //   document.getElementById('ctl00_cphMain_rbtnPicMsgMsg').disabled = true;
+ //   document.getElementById('ctl00_cphMain_rbtnVCardMsg').disabled = true;
+   document.getElementById('ctl00_cphMain_rbtnFlashMsg').disabled = true;
+   document.getElementById('ctl00_cphMain_trButtons').style.display = 'none';
+   document.getElementById('ctl00_cphMain_tblMsgDisp').style.display = 'none';
+   document.getElementById('ctl00_cphMain_divMsg').style.display = 'none';
+   }
+
+  /*if(type =='contacts')
+  {
+ document.getElementById('ctl00_cphMain_fUpload').disabled=true; document.getElementById('ctl00_cphMain_chkExcelWithMsg').checked=false; document.getElementById('ctl00_cphMain_chkExcelWithMsg').disabled=true;
+  document.getElementById('ctl00_cphMain_txtMobilenumbers').disabled=false;document.getElementById('ctl00_cphMain_chkExcelFMsg').disabled=true;
+  document.getElementById('ctl00_cphMain_chkExcelFMsg').checked=false;
+  document.getElementById('ctl00_cphMain_divMsg').disabled=false; document.getElementById('ctl00_cphMain_btnSave').style.display ='';
+  document.getElementById('ctl00_cphMain_divMsg').style.display = ''; document.getElementById('ctl00_cphMain_trButtons').style.display = '';
+  document.getElementById('ctl00_cphMain_tblPreview').style.display = '';//document.getElementById('ctl00_cphMain_divExcelFlash').style.display = 'none';
+  document.getElementById('ctl00_cphMain_btnSelectGrp').disabled=false; document.getElementById('ctl00_cphMain_btnImport').disabled=false;   
+  //document.getElementById('ctl00_cphMain_ancExcelDwnd').href='../Documents/Excel_Mobile.xls';
+ }
+ else
+ {
+ document.getElementById('ctl00_cphMain_fUpload').disabled=false;//document.getElementById('ctl00_cphMain_chkExcelWithMsg').checked=false;document.getElementById('ctl00_cphMain_chkExcelWithMsg').disabled=false;
+ document.getElementById('ctl00_cphMain_txtMobilenumbers').disabled=true;document.getElementById('ctl00_cphMain_chkExcelFMsg').disabled=false;
+ document.getElementById('ctl00_cphMain_chkExcelFMsg').checked=false;
+ document.getElementById('ctl00_cphMain_divMsg').disabled=false;document.getElementById('ctl00_cphMain_btnSave').style.display ='none';
+ document.getElementById('ctl00_cphMain_divMsg').style.display = '';document.getElementById('ctl00_cphMain_trButtons').style.display = '';
+ document.getElementById('ctl00_cphMain_tblPreview').style.display = '';//document.getElementById('ctl00_cphMain_divExcelFlash').style.display = 'none';
+ document.getElementById('ctl00_cphMain_btnSelectGrp').disabled=true; document.getElementById('ctl00_cphMain_btnImport').disabled=true; 
+ //document.getElementById('ctl00_cphMain_ancExcelDwnd').href='../Documents/Excel_Mobile.xls';
+ }*/
+ }
+ 
+    function CallUpload()       
+    { 
+       document.getElementById("ctl00_cphMain_fUploadImport").click();       
+      
+      return false;
+    }   
+    function displayFilename(evt)   
+    {  
+       var dot=evt.lastIndexOf(".");
+       var fileExtn =evt.substring(dot,evt.length)              
+       if(fileExtn == '.txt' ||  fileExtn == '.xls' ||  fileExtn == '.csv' ) 
+       {   
+        document.getElementById("ctl00_cphMain_lblFilename").innerText =evt;
+        document.getElementById("ctl00_cphMain_hdnfilename").value =evt;
+        document.getElementById("ctl00_cphMain_lblFilename").style.color = "#12408D";      
+        }
+       else
+       {
+        document.getElementById("ctl00_cphMain_lblFilename").innerText ="Please Upload .txt/.csv/.xls file";
+        document.getElementById("ctl00_cphMain_lblFilename").style.color = "Red";       
+       }      
+    }  
+function SelectAllCheckboxes(spanChk){
+var oItem=spanChk.children
+var theBox=(spanChk.type=="checkbox")?
+spanChk : spanChk.children.item[0]
+xState=theBox.checked
+elm=theBox.form.elements
+for(i=0;i<elm.length;i++){
+if(elm[i].type=="checkbox"&&elm[i].id!=theBox.id)
+if(elm[i].id!='ctl00_cphMain_chkSendLater')
+elm[i].checked=xState}
+}
+
+function DeselectMainCheckbox()
+{   
+  var frm = document.aspnetForm;
+	var boolAllChecked;
+	boolAllChecked=true;
+	for(i=0;i< frm.length;i++)
+	{
+		e=frm.elements[i]; 
+		if ( e.type=='checkbox' && e.name.indexOf('chk') != -1 )
+		{
+		if(e.id.indexOf('ctl00_cphMain_chkSendLater') == -1 || e.id.indexOf('ctl00_cphMain_chkExcelFMsg') == -1)
+		if(e.checked== false)
+		{ 
+			boolAllChecked=false;
+			break;
+		}
+		}
+	}
+	for(i=0;i< frm.length;i++) 
+	{
+		e=frm.elements[i];
+		if ( e.type=='checkbox' && e.name.indexOf('chkItem') != -1 )
+		{
+		 if(e.id.indexOf('ctl00_cphMain_chkSendLater') == -1 || e.id.indexOf('ctl00_cphMain_chkExcelFMsg') == -1)
+		  {
+			if( boolAllChecked==false) 
+				e.checked= false ;
+			else
+				e.checked= true; 
+				break;
+				}
+		}
+	}
+}
+
+ //Api tabs
+ function SelectAPIURL(rbtn)
+{
+
+var pType = rbtn.id;
+
+/*
+if(document.getElementById('ctl00_cphMain_tbcCompose_tbpApi_ctl17_hid_text').value == '')
+{
+    
+    document.getElementById('ctl00_cphMain_tbcCompose_tbpApi_ctl17_hid_text').value = document.getElementById('ctl00_cphMain_tbcCompose_tbpApi_ctl17_ancComposeUrl').innerHTML;
+} 
+if(document.getElementById('ctl00_cphMain_tbcCompose_tbpApi_ctl17_hid_unicode').value=='')
+{
+    
+    document.getElementById('ctl00_cphMain_tbcCompose_tbpApi_ctl17_hid_unicode').value = document.getElementById('ctl00_cphMain_tbcCompose_tbpApi_ctl17_ancComposeUnicodeUrl').innerHTML;
+} 
+if(document.getElementById('ctl00_cphMain_tbcCompose_tbpApi_ctl17_hid_flash').value=='')
+{ 
+    document.getElementById('ctl00_cphMain_tbcCompose_tbpApi_ctl17_hid_flash').value = document.getElementById('ctl00_cphMain_tbcCompose_tbpApi_ctl17_ancComposeFlashUrl').innerHTML;
+} 
+if(document.getElementById('ctl00_cphMain_tbcCompose_tbpApi_ctl17_hid_rwurl').value=='')
+{
+   document.getElementById('ctl00_cphMain_tbcCompose_tbpApi_ctl17_hid_rwurl').value = document.getElementById('ctl00_cphMain_tbcCompose_tbpApi_ctl17_ancComposeRWUrl').innerHTML;
+} */
+document.getElementById('ctl00_cphMain_ctl14_ancComposeUrl').innerHTML = '';
+document.getElementById('ctl00_cphMain_ctl14_ancComposeUnicodeUrl').innerHTML = '';
+document.getElementById('ctl00_cphMain_ctl14_ancComposeFlashUrl').innerHTML = '';
+document.getElementById('ctl00_cphMain_ctl14_ancComposeRWUrl').innerHTML = '';
+ document.getElementById('ctl00_cphMain_ctl14_hyp_ancComposeUnicodeUrl').innerHTML='';
+ 
+ if(pType == "ctl00_cphMain_ctl14_rbText")
+{
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeUrl').style.display='';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeUnicodeUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeFlashUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeRWUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_hyp_ancComposeUnicodeUrl').style.display='none';
+document.getElementById('ctl00_cphMain_ctl14_ancComposeUrl').innerHTML = document.getElementById('ctl00_cphMain_ctl14_hid_text').value; 
+ 
+}
+else if(pType == "ctl00_cphMain_ctl14_rbUnicode")
+{
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeUnicodeUrl').style.display='';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeFlashUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeRWUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_hyp_ancComposeUnicodeUrl').style.display='';
+document.getElementById('ctl00_cphMain_ctl14_ancComposeUnicodeUrl').innerHTML = document.getElementById('ctl00_cphMain_ctl14_hid_unicode').value;  
+document.getElementById('ctl00_cphMain_ctl14_hyp_ancComposeUnicodeUrl').innerHTML='Unicode Converter';
+}
+else if(pType == "ctl00_cphMain_ctl14_rbFlash")
+{
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeUnicodeUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeFlashUrl').style.display='';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeRWUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_hyp_ancComposeUnicodeUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeFlashUrl').innerHTML = document.getElementById('ctl00_cphMain_ctl14_hid_flash').value;  
+ 
+}
+else if(pType == "ctl00_cphMain_ctl14_rbRingTone")
+{
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeUnicodeUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeFlashUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeRWUrl').style.display='';
+ document.getElementById('ctl00_cphMain_ctl14_hyp_ancComposeUnicodeUrl').style.display='none';
+ document.getElementById('ctl00_cphMain_ctl14_ancComposeRWUrl').innerHTML = document.getElementById('ctl00_cphMain_ctl14_hid_rwurl').value.replace('024A3A7105918','024A3A71059185B5CC811985B5A5B1E404004720922C2C834C2C822C41C424C10B30AA0C30AA1055869092C422C2C834C2C822C41C424C10B30AA08B09A0AB0B0000');  
+}
+}
+
+
+function SelectAllPollCheckboxes(spanChk,Page)
+{
+var oItem=spanChk.children
+var theBox=(spanChk.type=="checkbox")?
+spanChk : spanChk.children.item[0]
+xState=theBox.checked
+elm=theBox.form.elements
+for(i=0;i<elm.length;i++){
+if(elm[i].type=="checkbox"&&elm[i].id!=theBox.id)
+if(elm[i].id!='ctl00_cphMain_chkSendLaterPoll' &&  elm[i].id!='ctl00_cphMain_chkExistCampName')
+elm[i].checked=xState }
+}
+
+function DeselectMainPollCheckbox(){
+var frm=document.aspnetForm
+var boolAllChecked
+boolAllChecked=true
+for(i=0;i<frm.length;i++){
+e=frm.elements[i]
+if(e.type=='checkbox'&&e.name.indexOf('chkItem')!=-1)
+if(e.checked==false){
+boolAllChecked=false
+break}}
+for(i=0;i<frm.length;i++){
+e=frm.elements[i]
+if(e.type=='checkbox'&&e.name.indexOf('chk')!=-1){
+if(boolAllChecked==false)
+e.checked=false
+else
+e.checked=true
+break}}}
+
+
+function DisplayText(txt,ddl)
+{
+    //document.getElementById("ctl00_cphMain_txtDisplay").value = document.getElementById("ctl00_cphMain_ddSelect").value;
+    //document.getElementById("ctl00_cphMain_txtDisplay").focus();
+    document.getElementById(txt).value = document.getElementById(ddl).value;
+   document.getElementById(txt).focus();
+}
+function SetValue()
+{ 
+ var value = document.getElementById("ctl00_cphMain_txtDisplay").value;
+   if(value !=  '')
+   {
+   var first  =  value.substring(0,1);
+   if( first == '0' || first == '1')
+   {
+   return true;
+   }   
+    }
+}
+
+function SetNewDropdownTime(fromHrs,fromMins,toHrs,toMins)
+{
+    var varfromHrs = document.getElementById(fromHrs);
+    var varfromMins = document.getElementById(fromMins);
+    
+   // var vartoHrs = document.getElementById(toHrs);
+   // var vartoMins = document.getElementById(toMins);
+    var d=new Date();
+    var Hr = d.getHours();
+    var Min =  d.getMinutes();   
+    if(Min <= 9)
+    Min =  "0"+Min;
+    document.getElementById("ctl00_cphMain_txtDisplay").value = Hr +":"+Min;
+   // varfromHrs.options[Hr].selected = true;
+	//varfromMins.options[Min].selected = true;
+	//vartoHrs.options['23'].selected = true;
+	//vartoMins.options['59'].selected = true;
+}
+
+function GetCoutof()
+{ 
+
+var Optid='';
+var OptDesid='';
+var Tot = 0 ;
+var Length= 0;
+var preview = "";
+var finalPreview = "";
+var Temp = "";
+
+preview = document.getElementById('ctl00_cphMain_txtHdrMsg').value.replace("\r\n","\n");
+if (document.getElementById('ctl00_cphMain_txtHdrMsg').value.length > 0)
+ preview =preview+"\n";
+finalPreview += preview;
+
+
+preview = document.getElementById('ctl00_cphMain_txtContetsQuestion').value.replace("\r\n","\n");
+if (document.getElementById('ctl00_cphMain_txtContetsQuestion').value.length > 0)
+ preview =preview+"\n";
+ finalPreview += preview;
+ 
+var num;
+
+ var TempOptions = "";
+if(document.getElementById('ctl00_cphMain_dlstOptions') != null)
+{
+var id = parseInt(document.getElementById('ctl00_cphMain_dlstOptions').rows.length);
+
+for(var i=0;i<=id-1;i++)
+{
+if(i>=0 && i<=6)
+{
+num='0'+i;
+}
+
+ preview = trim(document.getElementById('ctl00_cphMain_dlstOptions_ctl'+num+'_txtOption').value).replace("\r\n","\n");
+ if  (document.getElementById('ctl00_cphMain_dlstOptions_ctl'+num+'_txtOption').value.length > 0)
+ {
+ preview = preview+") "; 
+  Temp +=preview;
+ } 
+ finalPreview += preview;
+
+ preview = trim(document.getElementById('ctl00_cphMain_dlstOptions_ctl'+num+'_txtDesc').value).replace("\r\n","\n");
+ if (document.getElementById('ctl00_cphMain_dlstOptions_ctl'+num+'_txtDesc').value.length > 0)
+ {  
+   preview =preview+ " "; 
+ } 
+ finalPreview += preview;
+}
+}
+//finalPreview = finalPreview.replace(" ","")
+//Length =document.getElementById('ctl00_cphMain_tbcCompose_tbpPollContests_txtFooterMsg').value.length;
+preview = document.getElementById('ctl00_cphMain_txtFooterMsg').value.replace("\r\n","\n");
+if (document.getElementById('ctl00_cphMain_txtFooterMsg').value.length > 0 && trim(Temp).length >0)
+ preview = "\n"+preview;
+finalPreview += preview;
+//Tot += Length;
+
+
+//document.getElementById('ctl00_cphMain_tbcCompose_tbpPollContests_txtPollCount').value=Tot; 
+
+document.getElementById('ctl00_cphMain_txtPreview').value=finalPreview.replace("\r\n","\n"); 
+document.getElementById('ctl00_cphMain_txtPollCount').value=GetStringLength(finalPreview); 
+
+}
+//added srinu
+function textChange()
+{
+document.getElementById('ctl00_cphMain_lblCamNamePrev').innerHTML = document.getElementById('ctl00_cphMain_txtCampaignName').value; 
+}
+//added srinu
+function textMobileNo()
+{
+document.getElementById('ctl00_cphMain_lblBaseNoPrev').innerHTML = document.getElementById('ctl00_cphMain_txtMobilenumbers').value; 
+}
+//added srinu
+//lblStartDtPrev=   txtSendOn,ddlStartDateHrs : ddlStartDateMins
+function startDatePrv()
+{
+document.getElementById('ctl00_cphMain_lblStartDtPrev').innerHTML = document.getElementById('ctl00_cphMain_txtSendOn').value;//.innerHTML ;//+','+ document.getElementById('ctl00_cphMain_ddlStartDateHrs').value +':'+ docunent.getElementById('ctl00_cphMain_ddlStartDateMins').value; 
+}
+
+/*function TextMsgLength(Editortext,showTextLength,evt)
+{
+var oEdit=document.getElementById(Editortext).value;
+var OShowTextLength=document.getElementById(showTextLength);
+var charCode=(evt.which)? evt.which : event.keyCode
+document.getElementById('divAlert').innerHTML ='';
+document.getElementById('ctl00_cphMain_txtPreview').innerText = document.getElementById(Editortext).value;
+
+if (charCode == 86 || charCode == 67) return;
+
+if(charCode==8 || charCode==46)
+{
+   OShowTextLength.value = GetStringLength(oEdit);
+    if (OShowTextLength.value >160 && oEdit.length>0 )
+    {
+     document.getElementById('divAlert').innerHTML ="Message exceeds 160 Characters";
+    }
+}
+else
+{
+OShowTextLength.value = GetStringLength(oEdit);
+
+if (OShowTextLength.value >160 && oEdit.length>0 )
+{
+//alert('Message exceeds '+OShowTextLength.value+' Characters') ; 
+document.getElementById('divAlert').innerHTML ="Message exceeds 160 Characters";
+} 
+}
+if(document.getElementById('ctl00_cphMain_ddlLanguage').value !="English")
+{
+    OShowTextLength.value = parseInt(OShowTextLength.value) * 4;
+    var hCount = parseInt(OShowTextLength.value) / 268;
+    if((parseInt(OShowTextLength.value) % 268)>0 && parseInt(OShowTextLength.value) > 268)
+        hCount = hCount + 1;
+       OShowTextLength.value = parseInt(OShowTextLength.value) + (parseInt(hCount) * 12);
+       if(parseInt(OShowTextLength.value)>280)
+       document.getElementById('divAlert').innerHTML ="Message exceeds 280 Characters";
+       
+}
+}*/
+//Added by Kiran on 10-02-11
+  function MessageLength(Editortext,showTextLength,evt)
+{
+var oEdit=document.getElementById(Editortext).value;
+var OShowTextLength=document.getElementById(showTextLength);
+var charCode=(evt.which)? evt.which : event.keyCode;
+document.getElementById('divAlert').innerHTML ='';
+if (charCode == 86 || charCode == 67) return;
+if(charCode==8 || charCode==46)
+{   OShowTextLength.value = GetStringLength(oEdit);
+ if (OShowTextLength.value >160 && oEdit.length>0 )
+{ 
+    if(OShowTextLength.value >160 && OShowTextLength.value <=306)
+    {
+    document.getElementById('divAlert').innerHTML="Message will consume 2 Credits";return;
+    }
+    else if(OShowTextLength.value >306 && OShowTextLength.value <=459)
+    {
+     document.getElementById('divAlert').innerHTML="Message will consume 3 Credits";return;
+    }
+    else if(OShowTextLength.value >459 && OShowTextLength.value <=612)
+    {
+     document.getElementById('divAlert').innerHTML="Message will consume 4 Credits";return;
+    }
+     else if(OShowTextLength.value >612 && OShowTextLength.value <=765)
+    {
+     document.getElementById('divAlert').innerHTML="Message will consume 5 Credits";return;
+    }
+       else if(OShowTextLength.value >765 && OShowTextLength.value <=918)
+    {
+     document.getElementById('divAlert').innerHTML="Message will consume 6 Credits";return;
+    }
+       else if(OShowTextLength.value >918 && OShowTextLength.value <=1072)
+    {
+     document.getElementById('divAlert').innerHTML="Message will consume 7 Credits";return;
+    }
+    else
+    {
+    document.getElementById('divAlert').innerHTML="";return;
+    }
+} 
+else
+{
+
+document.getElementById('divAlert').innerHTML="";
+}
+}
+else
+{  OShowTextLength.value = GetStringLength(oEdit);
+ if (OShowTextLength.value >160 && oEdit.length>0 )
+{ 
+if(OShowTextLength.value >160 && OShowTextLength.value <=306)
+    {
+    document.getElementById('divAlert').innerHTML="Message will consume 2 Credits";return;
+    }
+    else if(OShowTextLength.value >306 && OShowTextLength.value <=459)
+    {
+     document.getElementById('divAlert').innerHTML="Message will consume 3 Credits";return;
+    }
+    else if(OShowTextLength.value >459 && OShowTextLength.value <=612)
+    {
+     document.getElementById('divAlert').innerHTML="Message will consume 4 Credits";return;
+    }
+     else if(OShowTextLength.value >612 && OShowTextLength.value <=765)
+    {
+     document.getElementById('divAlert').innerHTML="Message will consume 5 Credits";return;
+    }
+       else if(OShowTextLength.value >765 && OShowTextLength.value <=918)
+    {
+     document.getElementById('divAlert').innerHTML="Message will consume 6 Credits";return;
+    }
+       else if(OShowTextLength.value >918 && OShowTextLength.value <=1072)
+    {
+     document.getElementById('divAlert').innerHTML="Message will consume 7 Credits";return;
+    }
+    else
+    {
+    document.getElementById('divAlert').innerHTML="";return;
+    }
+} 
+}
+if(document.getElementById('ctl00_cphMain_drpLanguage').value !="English")
+{
+    OShowTextLength.value = parseInt(OShowTextLength.value) * 4;
+    var hCount = parseInt(OShowTextLength.value) / 268;
+    if((parseInt(OShowTextLength.value) % 268)>0 && parseInt(OShowTextLength.value) > 268)
+        hCount = hCount + 1;
+       OShowTextLength.value = parseInt(OShowTextLength.value) + (parseInt(hCount) * 12);
+       if(parseInt(OShowTextLength.value)>280)
+       document.getElementById('divAlert').innerHTML ="Message exceeds 280 Characters";       
+}
+} 
+//Added by Kiran on 10-02-11
+function changedrp(txtarea, evt)
+{            
+//debugger
+    var displace = 0;
+	var text='';
+    var previousValue = "";
+    //var e = evt; //(evt)? e: ((window.event)? event : null);
+    var e = window.event? event : evt;
+    if( e.altKey || e.ctrlKey)
+    {
+		return true;
+	}
+	var key=0;
+	var keychar='';
+	var shift=false;
+	var pos= 0; // doGetCaretPosition (txtarea);
+	var prevpos = 0;
+	if ( document.all )
+	{
+		key = e.keyCode;
+		//alert(key);
+	}	
+	else
+	{
+		key = e.which;
+	}
+
+	if ((key <32) || (key >=33 && key <=47) ||(key>=59 && key <=64)||(key>=91 && key<=96 && !key==94)||(key>=123 && key<=127) )
+		return true;
+	
+
+	keychar = String.fromCharCode(key);
+	if(posChanged)
+	{
+		prevkey = 32;
+		hidden=false;
+		prevpos = 0;
+		previousConsonant = false;
+		previouspreviousConsonant = false;
+		
+	}
+		switch(keychar)
+		{
+			case "a":
+			case "e":
+			case "i":
+			case "o":
+			case "u":
+			case "A":
+			case "I":
+			case "U":
+			case "O":
+			case "E":
+						var cComb = GetConsonantCombination(prevkey,key);
+						var vComb = GetVowelCombination(prevkey,key);
+
+						if(previousConsonant)
+						{
+							displace --;
+							text=Consonant[key]; // nothing to append. just remove viram
+
+						}
+						else if (typeof(vComb) != 'undefined')
+						{
+							if(!previouspreviousConsonant)
+							{
+								
+								displace --; // aa, ai, au.......
+								text = vComb;
+							}
+							else
+							{
+								displace = 0;
+								text = cComb;
+							}
+						}
+						else
+						{
+							displace = 0;
+							text = Vowel[key]; 
+						}
+						previouspreviousConsonant = previousConsonant;
+						previousConsonant = false;
+						hidden=false;
+						break;
+			case 'R':
+						if(previousConsonant)
+						{
+							displace--; // replace the viram
+							text = Consonant[VRU];
+							// here no need for another U in VRU. by detecting VR it is assumed the whole word
+						}
+						else
+						{
+							displace=0; // nothing to displace
+							text = Vowel[key];
+						}
+						previouspreviousConsonant = previousConsonant;
+						previousConsonant = false;
+						hidden = false;
+						prevkey = key;
+						break;
+			case '^':
+			case 'M':
+						displace = 0;
+						text = Consonant[key];
+						previouspreviousConsonant = previousConsonant;
+						previousConsonant = false;
+						hidden = false;
+						prevchar = keychar;
+						break;
+			case ' ':
+						if(previousConsonant)
+						{
+							displace --;
+						}
+						else
+						{
+							displace = 0;
+						}
+						text = Symbol[key];
+						previouspreviousConsonant = previousConsonant;
+						previousConsonant = false;
+						hidden = false;
+						prevkey = key;
+						break;
+			default:
+						var cComb = GetConsonantCombination(prevkey,key);
+						if (hidden)
+						{
+							if(typeof(cComb) !='undefined')
+							{
+								displace = 0; // because previous word was not shown in textarea.
+								text = cComb+ Consonant[VIRAM];
+								previouspreviousConsonant = previousConsonant;
+								previousConsonant = true;
+							}
+							else if (typeof(Consonant[key]) !='undefined')
+							{
+								displace = 0;
+								text = Consonant[key] + Consonant[VIRAM];
+								previouspreviousConsonant = previousConsonant;
+								previousConsonant = true;
+								hidden = false;
+							}
+							else
+							{
+								displace =0;
+								previouspreviousConsonant = previousConsonant;
+								previousConsonant = false;
+							}
+						}
+						else
+						{
+							if(typeof(cComb) !='undefined')
+							{
+								displace -=2; // for d, dh, D, Dh etc.
+								text = cComb+ Consonant[VIRAM];
+								previouspreviousConsonant = previousConsonant;
+								previousConsonant = true;
+							}
+							else if(typeof(Consonant[key])!='undefined')
+							{
+								displace = 0;
+								text = Consonant[key] + Consonant[VIRAM]; // letter + viram
+								previouspreviousConsonant = previousConsonant;
+								previousConsonant = true;
+							}
+							else if (typeof(Symbol[key]) != 'undefined')
+							{
+								displace =0;
+								text = Symbol[key];
+								previouspreviousConsonant = previousConsonant;
+								previousConsonant = false;
+							}
+							else
+							{
+								previouspreviousConsonant = previousConsonant;
+								previousConsonant = true;
+								hidden = true;
+							}
+							
+						}
+		}
+
+		prevkey = key;
+
+	if(txtarea.setSelectionRange)
+	{
+		// Mozilla specific
+		pos = txtarea.selectionStart;
+		var s1 = txtarea.value.substring(0,pos + displace);
+		var s2 = txtarea.value.substring(pos, txtarea.value.length);
+		var scrollPos = txtarea.scrollTop;
+		if(typeof(text) != 'undefined')
+			prevpos = pos + displace + text.length;
+		else
+			prevpos = pos + displace;
+		txtarea.value = s1 + text + s2;
+
+		txtarea.scrollTop = scrollPos;
+		txtarea.focus();
+		txtarea.setSelectionRange(prevpos,prevpos);
+	}
+	else if (txtarea.createTextRange && txtarea.cursorPos)
+	{
+		// IE specific
+		var range = txtarea.cursorPos;
+		range.moveStart('character', displace);
+	    range.text =	(range.text.charAt(range.text.length - 1)	== ' ' ? text +	' '	: text);
+		range.collapse(false);
+	    range.scrollIntoView(true);
+	}
+	else
+	{
+		// Other browser
+		if (displace==0)
+		{
+			txtarea.value += text;
+		}
+		else
+		{
+			txtarea.value =	txtarea.value.substring(0, txtarea.value.length-1) + text;
+		}
+	}
+	txtarea.focus();
+	posChanged=false;
+	return false;
+	
+}
+

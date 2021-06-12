@@ -1,0 +1,924 @@
+// constants
+var noValue = '-99'
+
+
+function browserInfo()
+{
+	
+	this.nver=parseInt(navigator.appVersion);
+	this.ver=navigator.appVersion;
+	this.agent=navigator.userAgent;
+	this.dom=document.getElementById?1:0;
+	this.opera=window.opera?1:0;
+	this.ie5=(this.ver.indexOf("MSIE 5")>-1&&this.dom&&!this.opera)?1:0;
+	this.ie6=(this.ver.indexOf("MSIE 6")>-1&&this.dom&&!this.opera)?1:0;
+	this.ie4=(document.all&&!this.dom&&!this.opera)?1:0;
+	this.ie=this.ie4||this.ie5||this.ie6;
+	this.mac=this.agent.indexOf("Mac")>-1;
+	this.ns6=(this.dom&&parseInt(this.ver)>=5)?1:0;
+	this.ie3=(this.ver.indexOf("MSIE")&&(this.nver<4));
+	this.hotjava=(this.agent.toLowerCase().indexOf('hotjava')!=-1)?1:0;
+	this.ns4=(document.layers&&!this.dom&&!this.hotjava)?1:0;
+	this.bw=(this.ie6||this.ie5||this.ie4||this.ns4||this.ns6||this.opera);
+	this.ver3=(this.hotjava||this.ie3);
+	this.opera7=((this.agent.toLowerCase().indexOf('opera 7')>-1) || (this.agent.toLowerCase().indexOf('opera/7')>-1));
+	this.operaOld=this.opera&&!this.opera7;
+	return this;
+	
+};
+
+
+function und( val )
+{
+	return typeof(val)=='undefined'
+}
+
+
+// globals
+var bw=new browserInfo();
+
+var curOption = new Array();
+var isLoaded = new Array();
+
+
+var oldLink = null;
+// code to change the active stylesheet
+function setActiveStyleSheet(link, title) {
+  var i, a, main;
+  for(i=0; (a = document.getElementsByTagName("link")[i]); i++) {
+    if(a.getAttribute("rel").indexOf("style") != -1 && a.getAttribute("title")) {
+      a.disabled = true;
+      if(a.getAttribute("title") == title) a.disabled = false;
+    }
+  }
+  if (oldLink) oldLink.style.fontWeight = 'normal';
+  oldLink = link;
+  //link.style.fontWeight = 'bold';
+  return false;
+}
+
+// This function gets called when the end-user clicks on some date.
+function selected(cal, date) {
+  cal.sel.value = date; // just update the date in the input field.
+  cal.callCloseHandler();
+}
+
+// And this gets called when the end-user clicks on the _selected_ date,
+// or clicks on the "Close" button.  It just hides the calendar without
+// destroying it.
+function closeHandler(cal) {
+  cal.hide();                        // hide the calendar
+}
+
+// This function shows the calendar under the element having the given id.
+// It takes care of catching "mousedown" signals on document and hiding the
+// calendar if the click was outside.
+function showCalendar(id, format) 
+{
+
+  var el = document.getElementById(id);
+  if(el.disabled==true)
+	return false;
+  
+  
+  
+  if (calendar != null) {
+    // we already have some calendar created
+    calendar.hide();                 // so we hide it first.
+  } else {
+    // first-time call, create the calendar.
+    var cal = new Calendar(false, null, selected, closeHandler);
+    // uncomment the following line to hide the week numbers
+    cal.weekNumbers = false;
+    calendar = cal;                  // remember it in the global var
+    cal.setRange(1900, 2070);        // min/max year allowed.
+    cal.create();
+  }
+  calendar.setDateFormat(format);    // set the specified date format
+  calendar.parseDate(el.value);      // try to parse the text in field
+  calendar.sel = el;                 // inform it what input field we use
+  calendar.showAtElement(el);        // show the calendar below it
+
+  return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function fillList( lst, strOptions){
+  // fill any list with options
+  
+  emptyList(lst);
+  
+  // always insert selection prompt
+  
+  //var lst = document.forms['NewSubProjectPage'][listName];
+  
+  lst.disabled = true;
+  lst.options[0] = new Option('-- Please Select --', noValue);
+  
+  // options in form "value~displaytext|value~displaytext|..."
+  
+  var aOptionPairs = strOptions.split('|');
+  for( var i = 0; i < aOptionPairs.length; i++ ){
+    if (aOptionPairs[i].indexOf('~') != -1) {
+      var aOptions = aOptionPairs[i].split('~');
+      lst.options[i + 1] = new Option(aOptions[1], aOptions[0]);
+    }  
+  }
+  
+  // init to no value
+  selectOption( lst, noValue );
+  //lst.onchange = eval( listName + "_onChange" );
+  
+  isLoaded[lst.Name] = true;
+  lst.disabled = false;
+}
+
+function fillListEx( lst, strOptions, DefaultText, DefaultValue ){
+  // fill any list with options
+  
+  emptyList(lst);
+  
+  // always insert selection prompt
+  
+  //var lst = document.forms['NewSubProjectPage'][listName];
+  
+  lst.disabled = true;
+  lst.options[0] = new Option(DefaultText, DefaultValue);
+  
+  // options in form "value~displaytext|value~displaytext|..."
+  
+  var aOptionPairs = strOptions.split('|');
+  for( var i = 0; i < aOptionPairs.length; i++ ){
+    if (aOptionPairs[i].indexOf('~') != -1) {
+      var aOptions = aOptionPairs[i].split('~');
+      lst.options[i + 1] = new Option(aOptions[1], aOptions[0]);
+    }  
+  }
+  
+  // init to no value
+  selectOption( lst, noValue );
+  //lst.onchange = eval( listName + "_onChange" );
+  
+  isLoaded[lst.Name] = true;
+  lst.disabled = false;
+}
+
+
+function selectOption( lst, optionVal )
+{
+  // set list selection to option based on value
+  //var lst = document.forms['NewSubProjectPage'][listName];
+  for( var i = 0; i< lst.options.length; i++ ){
+    if( lst.options[i].value == optionVal ){
+      lst.selectedIndex = i;
+      curOption[lst.Name] = optionVal;
+      return;
+    }  
+  }
+}
+
+function DaysInMonth(Y, M) 
+{ // M=1..12   >= 2000-09-01
+  with (new Date(Y, M, 1, 12)) 
+  {
+    setDate(0) ; return getDate() 
+   } 
+ }
+
+function dateDiff(stdate,enddate) 
+{
+			var arry = new Array(1,-1,-1);	
+			var ntotal=0,ndiff=0;
+			var nYears=-1,nMons=-1,ndays=-1;
+						
+			date1 = new Date();
+			date2 = new Date();
+			diff  = new Date();
+			
+			if (IsValidDate(stdate) )
+			{ // Validates first date 
+				date1temp = new Date(stdate);
+				date1.setTime(date1temp.getTime());
+			}
+			else return false; // otherwise exits
+			
+			if (IsValidDate(enddate))
+			{ // Validates second date 
+				date2temp = new Date(enddate);
+				date2.setTime(date2temp.getTime());
+			}
+			else return false; // otherwise exits
+			// sets difference date to difference of first date and second date
+			
+			diff.setTime(Math.abs(date1.getTime() - date2.getTime()));
+			
+			timediff = diff.getTime();
+			
+			//Fixing Up One Day Issue To Synchronize with Server Side Date Diff
+			timediff =timediff + (1000 * 60 * 60 * 24);
+			
+			weeks = Math.floor(timediff / (1000 * 60 * 60 * 24 * 7));
+			timediff -= weeks * (1000 * 60 * 60 * 24 * 7);
+				
+			days = Math.floor(timediff / (1000 * 60 * 60 * 24)); 
+			timediff -= days * (1000 * 60 * 60 * 24);
+			
+			hours = Math.floor(timediff / (1000 * 60 * 60)); 
+			timediff -= hours * (1000 * 60 * 60);
+
+			mins = Math.floor(timediff / (1000 * 60)); 
+			timediff -= mins * (1000 * 60);
+
+			secs = Math.floor(timediff / 1000); 
+			timediff -= secs * 1000;
+			
+			ntotal=((weeks*7)+days)/365.25;
+			nyears=Math.floor(ntotal);
+
+			ndiff=(ntotal-nyears)*12;
+			nMons=Math.floor(ndiff);
+
+			ndiff=((ntotal-nyears)*12)-nMons;
+			ndays=Math.floor(ndiff*30);
+			
+			
+			arry[0]=nyears;
+			arry[1]=nMons;
+			arry[2]=ndays;
+									
+			return arry; // form should never submit, returns false
+}
+
+
+function dateDiffVB(interval,stdate,enddate) 
+{
+	var arry = new Array(1,-1,-1);	
+	var ntotal=0,ndiff=0;
+	var nYears=-1,nMons=-1,ndays=-1;
+				
+	if (IsValidDate(stdate))
+		var date2 = new Date(stdate);
+	else 
+		return false; // otherwise exits
+	
+	if (IsValidDate(enddate))
+		var date1 = new Date(enddate);
+	else 
+		return false; // otherwise exits
+	
+				
+	var D1=new Array(1,-1,-1);
+	D1[0]=date1.getFullYear();
+	D1[1]=date1.getMonth() + 1 ;
+	D1[2]=date1.getDate();
+		
+	var D2=new Array(1,-1,-1);
+	D2[0]=date2.getFullYear();
+	D2[1]=date2.getMonth() + 1 ;
+	D2[2]=date2.getDate();
+	
+	
+	switch (interval.toUpperCase())
+	{
+				
+		case 'D': 
+			
+			var Dx = Date.UTC(D1[0], D1[1]-1, D1[2]);
+			var Dy = Date.UTC(D2[0], D2[1]-1, D2[2]);
+			return (Dx-Dy)/864e5; 
+			
+			break ;    
+		
+		case 'M': 
+		
+			if (D1[2]<D2[2]) 
+			{ 
+				D1[1]-- ; 
+				D1[2] += DaysInMonth(D1[0], D1[1]); 
+			}
+			D1[2] -= D2[2];
+			if (D1[1]<D2[1]) 
+			{ 
+				D1[0]--; 
+				D1[1] += 12;
+			}
+			D1[1] -= D2[1];
+			D1[0] -= D2[0];
+			return (D1[0]*12)+D1[1];
+			
+			break ;  
+		
+		case 'Y': 
+			
+			  var nYears = date2.getFullYear() - date1.getFullYear()
+			  date1.setFullYear(date2.getFullYear())
+			  if (date1>date2) nYears--
+			  return nYears 	    
+			
+			break ;
+		
+		default:
+		// If we get to here then the interval parameter
+		// didn't meet the d,h,m,s criteria.  Handle
+		// the error. 		
+		alert(intervalMsg) ;
+		return null ;
+				
+	}
+			
+	
+	arry[0]=nyears;
+	arry[1]=nMons;
+	arry[2]=ndays;
+							
+	return arry; // form should never submit, returns false
+}
+
+
+
+function emptyList( lst )
+{
+		
+	lst.options.length = 0;
+	lst.onchange = null;
+	isLoaded[lst.Name] = false;
+	curOption[lst.Name] = noValue;
+}
+
+function formatDate(dtValue)
+{
+	var dt;
+	
+	//alert(dtValue);
+	dtValue=new String(dtValue);
+	
+	//alert(dtValue);
+	
+	dt=new Date(Date.parse(dtValue));
+	//alert(dt);
+	if(dtValue.toLowerCase()!=dt.toString().toLowerCase())
+	{
+		dt.setHours(dt.getHours()+7);
+	}
+	//alert(dt);
+		
+	if(isNaN(dt.getMonth()))
+		return "";	
+	else
+		return dt.getMonth() + 1 + "/" + dt.getDate() +	"/" + dt.getFullYear();	
+		
+}
+
+		<!-- Hide from old browsers
+
+		var TRange = null;
+		var win = null;
+		var frameval = false;
+
+		var nom = navigator.appName.toLowerCase();
+		var agt = navigator.userAgent.toLowerCase();
+		var is_major  = parseInt(navigator.appVersion);
+		var is_minor  = parseFloat(navigator.appVersion);
+		var is_ie     = (agt.indexOf("msie") != -1);
+		var is_ie4up  = (is_ie && (is_major >= 4));
+		var is_nav    = (nom.indexOf('netscape')!=-1);
+		var is_nav4   = (is_nav && (is_major == 4));
+		var is_mac    = (agt.indexOf("mac")!=-1);
+		var is_gecko  = (agt.indexOf('gecko') != -1);
+
+		//  GECKO REVISION
+
+		var is_rev=0
+		if (is_gecko) {
+		temp = agt.split("rv:")
+		is_rev = parseFloat(temp[1])
+		}
+
+		//  USE THE FOLLOWING VARIABLE TO CONFIGURE FRAMES TO SEARCH
+		//  (SELF OR CHILD FRAME)
+
+		//  If you want to search another frame, change "self" below to
+		//  parent.frames["thisframe"]
+		//  where "thisframe" is the name of the target frame
+		//  eg: var frametosearch1 = parent.frames["thisframe"]
+
+		var frametosearch1 = parent.frames["PrefillForms"];
+
+		function search(whichform, whichframe) {
+			
+						
+		//  TEST FOR IE5 FOR MAC (NO DOCUMENTATION)
+
+		if (is_ie4up && is_mac) return;
+
+		//  TEST FOR NAV 6 (NO DOCUMENTATION)
+
+		if (is_gecko && (is_rev <1)) return;
+
+		//  INITIALIZATIONS FOR FIND-IN-PAGE SEARCHES
+
+		if(whichform.findthis.value!=null && whichform.findthis.value!='') {
+
+		       str = whichform.findthis.value;
+		       if(whichframe!=self)
+		       frameval=true;  // this will enable Nav7 to search child frame
+		       win = whichframe;
+
+		    
+		}
+
+		else 
+		{
+			alert("Please Enter The Search Text");
+			whichform.findthis.focus();
+			return;  //  i.e., no search string was entered
+		
+		}	
+
+		var strFound;
+
+		//  NAVIGATOR 4 SPECIFIC CODE
+
+		if(is_nav4 && (is_minor < 5)) {
+		   
+		  strFound=win.find(str); // case insensitive, forward search by default
+
+		//  There are 3 arguments available:
+		//  searchString: type string and it's the item to be searched
+		//  caseSensitive: boolean -- is search case sensitive?
+		//  backwards: boolean --should we also search backwards?
+		//  strFound=win.find(str, false, false) is the explicit
+		//  version of the above
+		//  The Mac version of Nav4 has wrapAround, but
+		//  cannot be specified in JS
+
+		 
+			}
+
+		//  NAVIGATOR 7 SPECIFIC CODE (WILL NOT WORK WITH NAVIGATOR 6)
+
+		if (is_gecko && (is_rev >= 1)) {
+		   
+		    if(frameval!=false) win.focus(); // force search in specified child frame
+		    strFound=win.find(str, false, false, true, false, frameval, false);
+
+
+		//  There are 7 arguments available:
+		//  searchString: type string and it's the item to be searched
+		//  caseSensitive: boolean -- is search case sensitive?
+		//  backwards: boolean --should we also search backwards?
+		//  wrapAround: boolean -- should we wrap the search?
+		//  wholeWord: boolean: should we search only for whole words
+		//  searchInFrames: boolean -- should we search in frames?
+		//  showDialog: boolean -- should we show the Find Dialog?
+
+		}
+
+		 if (is_ie4up) {
+
+		  // EXPLORER-SPECIFIC CODE
+
+		  if (TRange!=null)
+		  {
+				var tempRange = win.document.body.createTextRange();
+				
+				if (tempRange.inRange(TRange))
+				{
+					TRange.collapse(false)
+					strFound=TRange.findText(str)
+					if (strFound) TRange.select();
+				}
+				else
+					TRange = null;
+				
+		  }
+		  
+		  if (TRange==null || strFound==0) 
+		  {
+			TRange=win.document.body.createTextRange()
+		    strFound=TRange.findText(str)
+		    if (strFound) TRange.select();
+		  }
+		  
+		 }
+
+		  if (!strFound) alert ("String '"+str+"' not found!") // string not found
+
+		        
+		}
+		// -->
+		
+// User Defined Date Type Date Diff Object
+function odateDiff()
+{
+	
+	this.Years=0;
+	this.Months=0;
+	this.Days=0;
+		
+	
+			
+	this.calcDateDiff = function (stdate,enddate)
+	{
+
+			
+			var ntotal=0,ndiff=0;
+			var nYears=-1,nMons=-1,ndays=-1;
+						
+					
+			if (IsValidDate(stdate))
+			  var date2 = new Date(stdate);
+			else 
+			  return false; // otherwise exits
+			
+			if (IsValidDate(enddate))
+				var date1 = new Date(enddate);
+			else 
+				return false; // otherwise exits
+			
+						
+			var D1=new Array(1,-1,-1);
+			D1[0]=date1.getFullYear();
+			D1[1]=date1.getMonth() + 1 ;
+			D1[2]=date1.getDate();
+			  
+			var D2=new Array(1,-1,-1);
+			D2[0]=date2.getFullYear();
+			D2[1]=date2.getMonth() + 1 ;
+			D2[2]=date2.getDate();
+			
+						
+			if   (D1[2]<D2[2]) 
+			{ 
+				D1[1]-- ; 
+				D1[2] += DaysInMonth(D1[0], D1[1]) 
+			}
+			D1[2] -= D2[2]
+			if (D1[1]<D2[1]) 
+			{ 
+				D1[0]-- ; 
+				D1[1] += 12 
+			}
+			D1[1] -= D2[1]
+			D1[0] -= D2[0]
+			
+			
+			
+			this.Years=D1[0];
+			this.Months=D1[1];
+			this.Days=D1[2];
+									
+			return false;
+
+		
+	}
+	
+		
+	this.addDateDiff = function (firstdiff,seconddiff)
+	{
+		var DayDiff,MonDiff,YrDiff;
+		var fYears,fMonths,fDays,sYears,sMonths,sDays;
+		
+		DayDiff=0;
+		MonDiff=0;
+		YrDiff=0;
+		
+		if(arguments.length==1)
+		{
+			fYears=this.Years;
+			fMonths=this.Months;
+			fDays=this.Days;
+			
+			sYears=firstdiff.Years;
+			sMonths=firstdiff.Months;
+			sDays=firstdiff.Days;
+			
+		}
+		else
+		{
+			fYears=firstdiff.Years;
+			fMonths=firstdiff.Months;
+			fDays=firstdiff.Days;
+			
+			sYears=seconddiff.Years;
+			sMonths=seconddiff.Months;
+			sDays=seconddiff.Days;
+		}
+		
+		
+		DayDiff = DayDiff + fDays + sDays;
+		if(DayDiff>=30)
+		{
+			MonDiff = MonDiff + Math.floor(DayDiff / 30)
+			DayDiff = DayDiff%30;
+		}
+		MonDiff = MonDiff + fMonths + sMonths;
+		if(MonDiff >= 12)
+		{
+			YrDiff = YrDiff + Math.floor(MonDiff / 12)
+			MonDiff = MonDiff%12;
+		}
+		YrDiff = YrDiff + fYears + sYears	
+		
+		if(arguments.length==1)
+		{
+			this.Years=YrDiff;
+			this.Months=MonDiff;
+			this.Days=DayDiff;
+		}
+		else
+		{
+			var dtDiff=new odateDiff();
+			dtDiff.Years=YrDiff;
+			dtDiff.Months=MonDiff;
+			dtDiff.Days=DayDiff;
+			return dtDiff;
+		}
+		
+	}
+	
+	this.subtractDateDiff = function (firstdiff,seconddiff)
+	{
+		var DayDiff,MonDiff,YrDiff;
+		var fYears,fMonths,fDays,sYears,sMonths,sDays;
+		
+		DayDiff=0;
+		MonDiff=0;
+		YrDiff=0;
+		
+		if(arguments.length==1)
+		{
+			fYears=this.Years;
+			fMonths=this.Months;
+			fDays=this.Days;
+			
+			sYears=firstdiff.Years;
+			sMonths=firstdiff.Months;
+			sDays=firstdiff.Days;
+			
+		}
+		else
+		{
+			fYears=firstdiff.Years;
+			fMonths=firstdiff.Months;
+			fDays=firstdiff.Days;
+			
+			sYears=seconddiff.Years;
+			sMonths=seconddiff.Months;
+			sDays=seconddiff.Days;
+		}
+		
+		
+		if(fDays < sDays)
+		{
+			fMonths = fMonths - 1
+			fDays = fDays + 30
+		}
+		DayDiff = fDays - sDays
+		
+		if(fMonths < sMonths)
+		{
+			fYears = fYears - 1
+			fMonths = fMonths + 12
+		}
+		
+		MonDiff = fMonths - sMonths
+		YrDiff = fYears - sYears
+		
+			
+		if(arguments.length==1)
+		{
+			this.Years=YrDiff;
+			this.Months=MonDiff;
+			this.Days=DayDiff;
+		}
+		else
+		{
+			var dtDiff=new odateDiff();
+			dtDiff.Years=YrDiff;
+			dtDiff.Months=MonDiff;
+			dtDiff.Days=DayDiff;
+			return dtDiff;
+		}
+		
+	}
+	
+	
+	this.roundDateDiff = function (nRound)
+	{
+		
+		return round(this.Years + (this.Months / 12) + (this.Days / 365.25), nRound);
+	}
+	
+	if(arguments.length==2) //If there are two arguments then assume they passed dates and calculate datediff
+		this.calcDateDiff(arguments[0],arguments[1]);
+	else if(arguments.length==3) //If there are three arguments then assume they passed years months & days
+	{
+		this.Years=arguments[0];
+		this.Months=arguments[1];
+		this.Days=arguments[2];
+		
+	}
+	
+}			
+
+
+
+
+
+function getSelectedRadio(buttonGroup) 
+{
+   // returns the array number of the selected radio button or -1 if no button is selected
+   if (buttonGroup[0]) 
+   { // if the button group is an array (one button is not an array)
+      for (var i=0; i<buttonGroup.length; i++) 
+      {
+         if (buttonGroup[i].checked) 
+         {
+            return i
+         }
+      }
+   } 
+   else 
+   {
+      if (buttonGroup.checked) { return 0; } // if the one button is checked, return zero
+   }
+   // if we get to this point, no radio button is selected
+   return -1;
+} // Ends the "getSelectedRadio" function
+
+function getSelectedRadioValue(buttonGroup) 
+{
+   // returns the value of the selected radio button or "" if no button is selected
+   var i = getSelectedRadio(buttonGroup);
+   if (i == -1) 
+   {
+      return "";
+   } 
+   else 
+   {
+      if (buttonGroup[i]) 
+      { // Make sure the button group is an array (not just one button)
+         return buttonGroup[i].value;
+      } 
+      else 
+      { // The button group is just the one button, and it is checked
+         return buttonGroup.value;
+      }
+   }
+} // Ends the "getSelectedRadioValue" function
+
+function getSelectedCheckbox(buttonGroup) 
+{
+   // Go through all the check boxes. return an array of all the ones
+   // that are selected (their position numbers). if no boxes were checked,
+   // returned array will be empty (length will be zero)
+   var retArr = new Array();
+   var lastElement = 0;
+   if (buttonGroup[0]) 
+   { // if the button group is an array (one check box is not an array)
+      for (var i=0; i<buttonGroup.length; i++) 
+      {
+         if (buttonGroup[i].checked) 
+         {
+            retArr.length = lastElement;
+            retArr[lastElement] = i;
+            lastElement++;
+         }
+      }
+   } 
+   else 
+   { // There is only one check box (it's not an array)
+      if (buttonGroup.checked) 
+      { // if the one check box is checked
+         retArr.length = lastElement;
+         retArr[lastElement] = 0; // return zero as the only array value
+      }
+   }
+   return retArr;
+} // Ends the "getSelectedCheckbox" function
+
+function getSelectedCheckboxValue(buttonGroup) 
+{
+   // return an array of values selected in the check box group. if no boxes
+   // were checked, returned array will be empty (length will be zero)
+   var retArr = new Array(); // set up empty array for the return values
+   var selectedItems = getSelectedCheckbox(buttonGroup);
+   if (selectedItems.length != 0) 
+   { // if there was something selected
+      retArr.length = selectedItems.length;
+      for (var i=0; i<selectedItems.length; i++) 
+      {
+         if (buttonGroup[selectedItems[i]]) 
+         { // Make sure it's an array
+            retArr[i] = buttonGroup[selectedItems[i]].value;
+         }
+         else 
+         { // It's not an array (there's just one check box and it's selected)
+            retArr[i] = buttonGroup.value;// return that value
+         }
+      }
+   }
+   return retArr;
+} // Ends the "getSelectedCheckBoxValue" function
+
+
+
+function clearAllFields()
+{
+
+      
+   if(arguments.length == 0) 
+		var f=document.forms[0];
+   else
+		var f=document.forms[arguments[0]];
+		 
+   for(i=0; i<f.elements.length; ++i)
+   {
+	   	
+       switch(f.elements[i].type)
+       {
+         case "text":
+            f.elements[i].value='';         
+   		 case "hidden":	
+   			f.elements[i].value='';        
+        }
+        
+    
+	}
+	
+	return false;
+	
+}
+
+
+function loadLogin()
+{
+	var sUrl;
+	var nheight=screen.height;
+	var nwidth=screen.width;
+	if(arguments.length > 0)
+		sUrl = arguments[0];
+		
+	LoadWindowEx(sUrl,nheight,nwidth,0,0,false,false,true);	
+}
+
+
+
+function drawBorder()
+{
+	
+	var output = "";	
+	output += "<table bgcolor='#a52a2a' border='0' cellpadding='1' cellspacing='2' bordercolor='#006E8E'>";
+	output += "<tr>";
+	output += "<td align='center' valign='middle' bgcolor='#006E8E'>";
+	output += "<table bgcolor='#000000' border='0' cellpadding='2' cellspacing='2' align=center>";
+	output += "<tr>";
+	output += "<td align='center' valign='middle'>";
+	output += arguments[0];
+	output += "</td></tr></table>";
+	output += "</td></tr>";
+	output += "</table>";
+	if(arguments.length == 1)
+	{
+		document.write(output);
+	}		
+	else if(arguments.length == 2)
+	{
+		document.write (output);
+		document.write (arguments[1] + "<BR>");
+	}
+	else if (arguments.length == 3)
+	{
+		document.write (output);
+		document.write (arguments[1] + "<BR>");
+		document.write (arguments[2]);
+	}
+	//alert(output);
+       
+}
+
+function wrap1 (initImg,RollImage,ClickImage, w, h) {
+	return ['<img src=' + initImg + ' width=' + w + ' height=' + h + '>','<img src=' + RollImage + ' width=' + w + ' height=' + h + '>','<img src=' + ClickImage + ' width=' + w + ' height=' + h + '>']
+}

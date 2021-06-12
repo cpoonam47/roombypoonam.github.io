@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Update Record Room</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- fonts -->
+	{% load staticfiles %}
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+	<!-- /fonts -->
+	<!-- css -->
+	<link href="{% static 'registration/css/bootstrap.css' %}" rel="stylesheet" type='text/css' media="all" />
+	<link href="{% static 'registration/css/style.css' %}" rel="stylesheet" type='text/css' media="all" />
+	<!-- /css -->
+</head>
+
+<body>
+
+	<div class="content-agileits">
+		<h1 class="title">Update Room Record</h1>
+		<div class="left">
+			<form action="/myrmapp/editroomcode/" method="post" data-toggle="validator">
+				{% csrf_token %}
+				
+				<div class="form-group">
+					<label for="firstname" class="control-label"> Room id : </label>
+					<input type="text" name="id" class="form-control" id="firstname" value={{ f.id }} data-error="Enter Room id :" required>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+					<label for="firstname" class="control-label"> Owner Email Name:</label>
+					<input type="text" name="ownemail" class="form-control" id="firstname" value={{ f.ownemail }} data-error="Enter Owner Email Name:" required>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+					<label for="firstname" class="control-label">Room Title Name:</label>
+					<input type="text" name="roomtitle" class="form-control" id="firstname" value={{ f.roomtitle }} data-error="Enter Room Title Name" required>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+					<label for="firstname" class="control-label">Room Detail:</label>
+					<input type="text" name="roomdetails" class="form-control" id="firstname" value={{ f.roomdetails }} data-error="Enter Room Detail" required>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+					<label for="firstname" class="control-label">Select Category Name:</label>
+					<input type="text" name="category" class="form-control" id="firstname" value={{ f.category }} data-error="Enter Room Category Name" required>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+					<label for="firstname" class="control-label">Select Sub Category Name:</label>
+					<input type="text" name="subcategory" class="form-control" id="firstname" value={{ f.subcategory }} data-error="Enter Room Sub Category Name" required>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+					<label for="firstname" class="control-label">Room Image Source Code:</label>
+					<input type="text" name="roomimg" class="form-control" id="firstname"  value={{ f.roomimg }} data-error="Enter Room Image Source Code Name is invalid" required>
+					<div class="help-block with-errors"></div>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputEmail" class="control-label">Landmark:</label>
+					<input type="text" name="landmark" class="form-control" id="firstname"  value= {{f.landmark }} data-error="This Landmark Name is invalid" required>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+					<label for="inputEmail" class="control-label">Current Date:</label>
+					<input type="date" name="adddate" value={{f.adddate }} class="form-control" id="firstname" data-error="This Current Date is invalid"  required>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+					<label for="firstname" class="control-label">Enter Room Price:</label>
+					<input type="text" name="price" class="form-control" id="firstname" value={{f.price}} data-error="Enter Room Price" required>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+					<label for="firstname" class="control-label">Enter City Name:</label>
+					<input type="text" name="city" class="form-control" id="firstname" value={{f.city}} data-error="Enter City Name" required>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+					<label for="firstname" class="control-label">Room Condition</label>
+					<input type="text" name="status" class="form-control" id="firstname" value={{ f.status }} data-error="Enter Available OR Unavailable " required>
+					<div class="help-block with-errors"></div>
+				</div>
+				
+				<div class="form-group">
+					<button type="submit" class="btn btn-lg" name="btnsubmit">Update Room Record </button>
+				</div>
+			</form>
+		</div>
+		<div class="right"></div>
+		<div class="clear"></div>
+	</div>
+	<p class="copyright-w3ls">© 2018 Owner Registration Form. All Rights Reserved | Design by
+		poonam chandra
+	</p>
+	<!-- js -->
+	<script src="{% static 'registration/js/jquery-2.1.4.min.js' %}"></script>
+	<!-- //js -->
+
+	<script src="{% static 'registration/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'registration/js/validator.min.js' %}"></script>
+	<!-- /js files -->
+</body>
+
+</html>

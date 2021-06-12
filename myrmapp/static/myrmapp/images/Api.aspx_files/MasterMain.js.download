@@ -1,0 +1,58 @@
+﻿// JScript File
+//if(history.forward(1)) 
+//	history.replace(history.forward(1));
+
+include('../JSCalendar/calendar.js');
+include('../JSCalendar/utilities_002.js');
+
+	/*
+// <![CDATA[
+function Check_Alt_Plus_F4(objEvent) 
+{
+try {
+    var sKey;
+
+    if(window.event) {
+        sKey = window.event.keyCode;
+    }
+    else if(objEvent) {
+        sKey = objEvent.which;
+    }   
+    
+    var objEvent = objEvent || window.event;    
+    
+    //debugger
+    if(sKey == 115 && objEvent.altKey) {      
+        //alert("You clicked Alt + F4");  
+          
+    }  
+    if((sKey == 87 && objEvent.ctrlKey) || (sKey==119 && objEvent.ctrlKey)){      
+        //alert("You clicked Ctrl + w");    
+    }  
+}
+catch(ex) {
+    alert(ex.toString());
+}
+}
+// ]]>
+// <![CDATA[
+document.onkeydown = Check_Alt_Plus_F4;spyclick;
+//]]>
+var UserClicked=false;
+//document.onkeydown=spyclick;
+document.onmousedown=spyclick;
+function spyclick()
+{
+UserClicked=true;
+setTimeout("UserClicked=false",2000);
+}
+function popup()
+{
+if(!UserClicked)
+{
+   var win=window.open("ExplicitClose.aspx","","width=0,height=0,resizable=no'",true);
+   //win.document.write("Come Back....")
+}
+}
+window.onbeforeunload=popup;	
+*/

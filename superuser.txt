@@ -1,0 +1,3 @@
+username=poonam
+email: poonamchandramca@gmail.com
+pass concept123

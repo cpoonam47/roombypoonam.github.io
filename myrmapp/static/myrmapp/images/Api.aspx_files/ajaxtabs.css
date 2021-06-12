@@ -1,0 +1,89 @@
+
+/*
+//$Author: Sangameshwar.b $
+//$Date: 9/08/11 3:45p $
+//$Header: /RnD/Products/mVaayoo/.Net/mVaayoo/mVaayoo/css/ajaxtabs.css 5     9/08/11 3:45p Sangameshwar.b $
+//$Modtime: 9/08/11 3:44p $
+//$Revision: 5 $
+*/
+.indentmenu {
+	width: 100%; /*leave this value as is in most cases*/
+	text-align:center;
+	margin-left:15px;
+	padding: 0;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-weight:bold;
+}
+.indentmenu ul {
+	margin: 0;
+	padding: 0;
+	float: left;
+	/* width: 80%; width of menu*/
+/*darkred border*/
+text-align:center;
+	z-index:1000;
+}
+.indentmenu ul li {
+	display: inline;
+}
+.indentmenu ul li a {
+	float: left;
+	color: black; /*text color*/
+	text-decoration: none;
+	border-right: 0px solid #808080; /*darkred divider between menu items*/
+	background:transparent url(../images/indentbg.png) top center no-repeat;
+	width:132px;
+	height:17px;
+	text-align:center;
+	margin-right:5px;
+	padding-top:5px;
+}
+.indentmenu ul li a:visited 
+
+{
+	background:transparent url(../images/indentbg.png) top center no-repeat;
+	
+	color: black;
+}
+.indentmenu ul li a.selected 
+{
+	background:#ffffff;
+	border: 1px solid #c00;	
+	color: black !important;
+	text-decoration: none;
+	border-right: 0px solid #808080; /*darkred divider between menu items*/
+	/*background:transparent url(../images/indentbg2.png) top center no-repeat;*/
+	width:132px;
+	height:17px;
+	text-align:center;
+	padding-top:5px;
+	border-bottom:0px;
+	border-top:0px;
+	border-left:0px;
+}
+.indent_selected{
+color: black !important;
+text-decoration: none;
+border-right: 0px solid #808080;
+background:transparent url(../images/indentbg2.png) top center no-repeat;
+width:132px;
+height:15px;
+text-align:center;
+padding-top:5px;
+ 
+}
+
+
+.buttonstyle1 {
+	background:url(images/button1.png)  no-repeat;
+	border:0px;
+	color:#000000;
+	cursor:pointer;
+	font-family:Verdana,Arial,Helvetica,sans-serif;
+	font-size:11px;
+	width:100px;
+	height:23px;
+	margin:0px;
+	padding:0px;
+}

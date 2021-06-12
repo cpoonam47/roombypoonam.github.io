@@ -1,0 +1,40 @@
+<style type="text/css">
+	input{
+		height: 35px;
+		padding-left: 15px;
+		font-size: 16px;
+		border: 2px solid yellow;
+		border-radius: 5px;
+	}
+	section{
+		font-size: 20px;
+		font-family: verdana;
+	}
+</style>
+<section>
+	<center>
+		<br>
+		<h1>Are you Sure you want to Delete the Customer Record ??</h1>
+		<br>
+		<hr>
+		<br><br>
+		<div style="border: 2px solid red;padding: 20px; margin: 10px; background-color: gray">
+			<br>
+			<form action="/myrmapp/deletecusdata/" method="post">
+				{% csrf_token %}
+				<input type="text" name="txtid" value={{f.id}} />
+				<br>
+				<br>
+				<input type="text" name="txtuser" value={{f.username}} />
+				<br>
+				<br>
+
+				<input type="email" name="email" value="{{f.email}}" />
+				<br>
+				<br>
+				<input type="submit" name="btnsubmit" value="Delete Record From Here" />
+			</form>
+		</div>
+	</center>
+</section>
+

@@ -1,0 +1,84 @@
+<html>
+	<head>
+		<title>category</title>
+		<style type="text/css">
+			
+			section{
+				height: 78%;background-color: gray;
+			}
+			tr td{
+				
+				font-size: 15px;
+				color: black;
+
+			}
+			 a{
+				
+				font-size:22px;
+				color: yellow;
+			}
+			
+			
+			button{
+				font-size: 16px; font-family: verdana; border: 2px solid blue;border-radius: 10px;
+				padding: 5px;
+			}
+
+
+		</style>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static '/rmapp/style.css' %} ">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <link rel="stylesheet" href="{% static '/animation/css/animate.css' %}">
+		
+	</head>
+	<body style="background-color: gray; border: 2px solid black;">
+		<center>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 col-md-12">
+						
+						<div class="col-sm-12 col-md-12">
+					<h2>View Sub Category</h2>
+					{% if f %}
+				   
+				    {% for q in f %}
+				        
+
+				        <div style="float:left;margin-left:20px;margin-top:30px; border: 2px solid yellow; padding: 10px; background-color: white; color: black;" class="wow tada">
+							    <h4>Subcategory id :{{ q.id }}</h4>
+							    <h4><td>Sub category :{{ q.subcategory_name  }}</td></h4>
+							    
+								<button ><a href="/myrmapp/{{ q.id }}/delsubcat/" style="text-decoration: none;">Delete Subcategory </a></button>
+						</div>
+							
+				    {% endfor %}
+				    </ul>
+				{% else %}
+				    <p>No Sub Category  are available.</p>
+				{% endif %}
+				</div>
+
+		
+			<div class="btn-group btn-group-md">
+			    <button type="button" class="btn btn-primary"><a href="/myrmapp/" style="text-decoration: none; color: white;"> Home</a></button>
+			    <button type="button" class="btn btn-info"><a href="/myrmapp/ownerdash/" style="text-decoration: none;color: white;">Home Dashboard</a></button>
+			</div>
+
+					</div>
+					
+				</div>
+				
+			</div>
+		</center>
+		<script src="{% static 'animation/js/wow.min.js' %}"></script>
+		<script>
+			new WOW().init();
+		</script>
+	
+	</body>
+</html>
+
+

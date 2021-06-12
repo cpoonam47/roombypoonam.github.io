@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+
+	</body>
+	</html>
+	<head>
+	<title>Roomrental</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+			function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //for-mobile-apps -->
+	
+	{% load static %}
+	<link href="{% static '/myrmapp/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<link  href="{% static '/myrmapp/css/cm-overlay.css' %}" rel="stylesheet" type="text/css" media="all">
+	<link href="{% static '/myrmapp/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- font-awesome icons -->
+	<link href="{% static '/myrmapp/css/font-awesome.css' %}" rel="stylesheet"> 
+	<!-- //font-awesome icons -->
+	<link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	
+	</head>
+	<body>
+		<div class="main" id="home">
+	<!-- header -->
+		<div class="banner-top">
+			<!--
+				<div class="social-bnr-agileits">
+					<ul>
+
+						<li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="https://accounts.google.com/"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+						<li><a href="https://www.linkedin.com/feed/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>					
+					</ul>
+				</div>
+			-->
+				<div class="contact-bnr-w3-agile">
+					<ul>
+					    <li><i class="fa fa-home" aria-hidden="true"></i> INDORE MP</li>
+						<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:cpoonam47@gmail.com">cpoonam47@gmail.com</a></li>
+						<li><i class="fa fa-phone" aria-hidden="true">
+							<a href="tel:8962269272">
+						</i>+91 8962269272</li>	</a>
+						<li class="s-bar">
+							<div class="search">
+								<input class="search_box" type="checkbox" id="search_box" placeholder="Search by City">
+								<label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
+								<div class="search_form">
+									<form action="/myrmapp/serchcity/" method="post">
+										{% csrf_token %}
+										<input type="search" name="city" placeholder="Search by City">
+										<input type="submit" value="Send">
+									</form>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+
+		<div class="w3_navigation">
+			<div class="container">
+				<nav class="navbar navbar-default">
+					<div class="navbar-header navbar-left">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<h1><a class="navbar-brand" href="#">Room <span>Rental</span><p class="logo_w3l_agile_caption">Your Dream ROOM</p></a></h1>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+						<nav class="menu menu--iris">
+							<ul class="nav navbar-nav menu__list">
+								<li class="menu__item menu__item--current"><a href="" class="menu__link">Home</a></li>
+								<li class="menu__item"><a href="#about" class="menu__link scroll">About</a></li>
+								<li class="menu__item"><a href="#gallery" class="menu__link scroll">Gallery</a></li>
+								<li class="dropdown menu__item">
+									<a href="/myrmapp/login/" class="dropdown-toggle menu__link" >LOGIN</a>
+								</li>
+								<li class="dropdown menu__item">
+									<a href="/myrmapp/searchroomloc/" class="dropdown-toggle menu__link" >SEARCH ROOM</a>
+								</li>
+								<li class="menu__item"><a href="#contact" class="menu__link scroll">Contact Us</a></li>
+							</ul>
+						</nav>
+					</div>
+				</nav>
+
+			</div>
+		</div>
+	<!-- //header -->
+	<!-- banner -->
+		<div class="banner-silder">
+				 <div class="banner">
+						<ul>
+						</ul>
+					  <ol>
+					  </ol>
+					  <i class="left"></i><i class="right"></i>
+					  <div class="banner_wthree_agile_info">
+					     <h3>YOUR DREAM ROOM</h3>
+						 <p>We are Offering the Best Real Room Rental Services</p>
+						 <h2>Hello I am best of the world</h2>
+					  </div>
+			     </div>
+			
+		</div>
+	<!-- //banner -->
+		</div>
+	<!--count-->
+	<!--
+				<div class="count-agileits">
+						<div class="count-grids">
+						<div class="count-bgcolor-w3ls">
+
+								<div class="col-md-3 agileits_w3layouts_about_counter_left c1 count-grid">
+								  <i class="fa fa-smile-o" aria-hidden="true"></i>
+									<p class="counter">786</p> 
+									<span></span>
+										<h5>Happy Client</h5>
+								</div>
+								<div class="col-md-3 agileits_w3layouts_about_counter_left c2 count-grid">
+								<i class="fa fa-building-o" aria-hidden="true"></i>
+									<p class="counter">180</p> 
+									<span></span>
+										<h5>Appartments</h5>
+								</div>
+								<div class="col-md-3 agileits_w3layouts_about_counter_left c3 count-grid">
+								 <i class="fa fa-home" aria-hidden="true"></i>
+									<p class="counter">760</p>
+									<span></span>
+										<h5>Hostel & Flat</h5>
+								</div>
+								<div class="col-md-3 agileits_w3layouts_about_counter_left c4 count-grid">
+								 <i class="fa fa-users" aria-hidden="true"></i>
+									<p class="counter">1100</p>
+									<span></span>
+										<h5>Site members</h5>
+								</div>
+
+							<div class="clearfix"></div>
+							</div>
+						</div>
+				</div>
+			-->
+					<!--count-->
+	<!-- about -->
+		<div class="about" id="about">
+			<div class="container">
+			  <div class="wthree-tittle">
+			      <h3 class="agile_title">About Us</h3>
+				  <p class="w3l-agile-its-title">Find Your Dream Home</p>
+			   </div>
+				<div class="wthree_about_grids">
+					<div class="col-md-6 wthree_about_grid_left">
+						<h2>Welcome to our  <span>Room Rental Service</span></h2>
+						<div class="wthree_about_grid_left1">
+							<span></span>
+							<div class="wthree_about_grid_left1_pos">
+								<p>We help to find the Rooms for rent in Indore, Bhopal, Bilaspur & Rewa cities with location search option. We have different  types of category avaliable like PGs,Flats and Rooms.</p>
+				     			<p class="line-1">Our main objective to keep record of housing properties available on rent work and connecting bridge between Tenants and Room Owner/Agent.Search based on Keywords such as Locations, Prices.</p>
+				     			<br>
+				     			<h2 >Flate</h2>
+						        <p >We provide Flates for Girls,Boys and Family. We try our best to fullfill the customer's requirements. </p>
+						     	<p >Search based on Keywords such as Locations, Prices.</p>
+						     	
+										<div class="panel-group about_panel" id="accordion" role="tablist" aria-multiselectable="true">
+						  <div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingOne">
+							  <h4 class="panel-title asd">
+								<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Flate
+								</a>
+							  </h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+							  <div class="panel-body panel_text">
+								<p>In this three type flate providing <br>
+									1) 1BHK<br>
+									2) 2BHK<br>
+									3) 3BHK<br>
+									1)1BHK : Bike parking.<br>
+									2)2BHK :Car and Bike parking providing,Community Hall Provided(charges). <br>
+									Satellite Channels<br>
+										Safe large enough for laptop<br>
+										Minibar<br>
+									3)3BHK :Car and Bike parking providing with extra 1 car parking ,Community Hall Free of Cost and Swimming Pool.Free Home Delivery.<br>Flat-screen TV<br>
+										Satellite Channels<br>
+										Safe large enough for laptop<br>
+										Minibar<br>
+										Free toiletries<br>
+										Safe
+									<p>BHK stands for B=Bedroom, H= Hall, K=Kitchen</p>
+								</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingTwo">
+							  <h4 class="panel-title asd">
+								<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+								  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Hostel
+								</a>
+							  </h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+							   <div class="panel-body panel_text">
+								<p>In this hostel three bed providing<br>
+									there are boys and girls room providing,and we are also providing Mess Facility <br> 
+
+									1) 1 Bed<br>
+									2) 2 Bed<br>
+									3) 3 Bed<br>
+									Full Secuirity Providing,Strange Person not allowed in Hostel
+								 </p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingThree">
+							  <h4 class="panel-title asd">
+								<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+								  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Paying Guest (PG)
+								</a>
+							  </h4>
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+							   <div class="panel-body panel_text">
+								There are many types are room providing.<br>
+								1) Family Room<br>
+								2) Single Room<br>
+								3) Multiple Room<br>
+								We can providing some room if available .
+							  </div>
+							</div>
+						  </div>
+						  <div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingFour">
+							  <h4 class="panel-title asd">
+								<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+								  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Facility
+								</a>
+							  </h4>
+							</div>
+							<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+							   <div class="panel-body panel_text">
+								There are many facility providing,now a days water cooler,refrigerator,
+								AC, Taxi ,we provided Taxi ,Free WiFi Internet Facility,Medical Facility.
+							  </div>
+							</div>
+						  </div>
+						</div>
+							</div>
+						</div>
+						
+					</div>
+
+					<div class="col-md-6 wthree_about_grid_right">
+						<img src="{% static "myrmapp/images/shiva.png" %}" alt=" " class="img-responsive" />
+						
+						<br><br>
+					</div>
+					<div class="col-md-6 wthree_about_grid_right">
+						<img src="{% static "myrmapp/images/h1.jpg" %}" alt=" " class="img-responsive" />
+						<br><br>
+					</div>
+					<div class="col-md-6 wthree_about_grid_right">
+						<img src="{% static "myrmapp/images/h2.jpg" %}" alt=" " class="img-responsive" />
+					</div>
+					
+					
+					
+					<div class="clearfix"> </div>
+				</div>
+				
+			</div>
+		</div>
+	<!-- /about-bottom -->
+	<!-- /propertygirds_agileits -->
+		<div class="property_girds_agileits">
+			<div class="agile_team_grid">	
+		
+						<div class="col-md-3 w3ls_banner_bottom_grid">
+							<img src="{% static 'myrmapp/images/g1.jpg' %}" alt=" " class="img-responsive" />
+							<div class="overlay">
+								<h4>INDORE</h4>
+								
+							</div>
+						</div>
+
+						<div class="col-md-3 w3ls_banner_bottom_grid">
+							<img src="{% static 'myrmapp/images/g2.jpg' %}" alt=" " class="img-responsive" />
+							<div class="overlay">
+								<h4>BILASPUR</h4>
+								
+							</div>
+						</div>
+
+
+						<div class="col-md-3 w3ls_banner_bottom_grid hvr-shutter-in-horizontal">
+							<img src="{% static 'myrmapp/images/g3.jpg' %}" alt=" " class="img-responsive" />
+							<div class="overlay">
+								<h4>Rewa</h4>
+								
+							</div>
+						</div>
+
+
+						<div class="col-md-3 w3ls_banner_bottom_grid">
+							<img src="{% static 'myrmapp/images/g4.jpg' %}" alt=" " class="img-responsive" />
+							<div class="overlay">
+								<h4>BHOPAL</h4>
+								
+							</div>
+						</div>
+
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	<!-- //services -->
+		<div class="agents jarallax" id="team">
+			<div class="container">
+				<div class="wthree-tittle">
+			      <h3 class="agile_title one two">Our Agents</h3>
+				  <p class="w3l-agile-its-title second">Find Your Dream Home</p>
+			   </div>
+				<div class="w3_services_grids">
+					<div class="col-md-3 w3ls_team_grid">
+						<div class="w3ls_team_grid1 hover15">
+							<figure>
+								<img src="{% static 'myrmapp/images/team3.jpg' %}" alt=" " class="img-responsive" />
+							</figure>
+							<div class="w3ls_team_grid1_pos">
+								<ul class="social-icons">
+									<li><a href="https://www.facebook.com/" class="icon icon-border facebook"></a></li>
+									<li><a href="https://twitter.com/" class="icon icon-border twitter"></a></li>
+									<li><a href="https://www.instagram.com/?hl=en" class="icon icon-border instagram"></a></li>
+								</ul>
+							</div>
+						</div>
+						<h4>Nitish Kumar Pal</h4>
+						<p>Agent</p>
+					</div>
+					<div class="col-md-3 w3ls_team_grid">
+						<div class="w3ls_team_grid1 hover15">
+							<figure>
+								<img src="{% static 'myrmapp/images/team4.jpg' %}" alt=" " class="img-responsive" />
+							</figure>
+							<div class="w3ls_team_grid1_pos">
+								<ul class="social-icons">
+									<li><a href="https://www.facebook.com/" class="icon icon-border facebook"></a></li>
+									<li><a href="https://twitter.com/" class="icon icon-border twitter"></a></li>
+									<li><a href="https://www.instagram.com/?hl=en" class="icon icon-border instagram"></a></li>
+								</ul>
+							</div>
+						</div>
+						<h4>Tarun Jaiswal</h4>
+						<p>Agent</p>
+					</div>
+					<div class="col-md-3 w3ls_team_grid">
+						<div class="w3ls_team_grid1 hover15">
+							<figure>
+								<img src="{% static 'myrmapp/images/team2.jpg' %}" alt=" " class="img-responsive" />
+							</figure>
+							<div class="w3ls_team_grid1_pos">
+								<ul class="social-icons">
+									<li><a href="https://www.facebook.com/" class="icon icon-border facebook"></a></li>
+									<li><a href="https://twitter.com/" class="icon icon-border twitter"></a></li>
+									<li><a href="https://www.instagram.com/?hl=en" class="icon icon-border instagram"></a></li>
+								</ul>
+							</div>
+						</div>
+						<h4>Ravi</h4>
+						<p>Agent</p>
+					</div>
+					<div class="col-md-3 w3ls_team_grid">
+						<div class="w3ls_team_grid1 hover15">
+							<figure>
+								<img src="{% static 'myrmapp/images/team1.jpg' %}" alt=" " class="img-responsive" />
+							</figure>
+							<div class="w3ls_team_grid1_pos">
+								<ul class="social-icons">
+									<li><a href="https://www.facebook.com/" class="icon icon-border facebook"></a></li>
+									<li><a href="https://twitter.com/" class="icon icon-border twitter"></a></li>
+									<li><a href="https://www.instagram.com/?hl=en" class="icon icon-border instagram"></a></li>
+								</ul>
+							</div>
+						</div>
+						<h4>Pooja</h4>
+						<p>Agent</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	<!-- //agents -->
+
+
+		<!-- gallery -->
+		<div class="gallery" id="gallery">
+			<div class="container">
+				<div class="wthree-tittle">
+			      <h3 class="agile_title one">Properties</h3>
+				  <p class="w3l-agile-its-title">Find Your Dream Home</p>
+			   </div>
+				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+						<ul id="myTab" class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#home-main" id="home-tab" role="tab" data-toggle="tab" aria-controls="home-main" aria-expanded="true">All</a></li>
+							<li role="presentation"><a href="#learning" role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning">Bhopal</a></li>
+							<li role="presentation"><a href="#playing" role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">Indore </a></li>
+							<li role="presentation"><a href="#painting" role="tab" id="painting-tab" data-toggle="tab" aria-controls="painting">Rewa </a></li>
+							<li role="presentation"><a href="#school" role="tab" id="school-tab" data-toggle="tab" aria-controls="school">Bilaspur</a></li>
+						</ul>
+						<div id="myTabContent" class="tab-content">
+							<div role="tabpanel" class="tab-pane fade in active" id="home-main" aria-labelledby="home-tab">
+								<div class="w3_tab_img">
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g1.jpg' %}">
+											  <figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g1.jpg' %}" alt=" " class="img-responsive" />
+											  </figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Indore</p>
+										</div>
+									</div>
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g2.jpg' %}">
+											  <figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g2.jpg' %} " alt=" " class="img-responsive" />
+											  </figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Bilaspur </p>
+										</div>
+									</div>
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g3.jpg' %}">
+											  <figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g3.jpg' %}" alt=" " class="img-responsive" />
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Rewa  </p>
+										</div>
+									</div>
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g4.jpg' %}">
+											  <figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g4.jpg' %}" alt=" " class="img-responsive" />
+											</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Indore</p>
+										</div>
+									</div>
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g5.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g5.jpg' %}" alt=" " class="img-responsive" />
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Rewa</p>
+										</div>
+									</div>
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g6.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g6.jpg' %}" alt=" " class="img-responsive" />
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Bhopal</p>
+										</div>
+									</div>
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g7.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g7.jpg' %}" alt=" " class="img-responsive" />
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Indore</p>
+										</div>
+									</div>
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g1.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g1.jpg' %}" alt=" " class="img-responsive" />
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Bhopal </p>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane fade" id="learning" aria-labelledby="learning-tab">
+								<div class="w3_tab_img">
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g2.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g2.jpg' %}" alt=" " class="img-responsive">
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Bhopal</p>
+										</div>
+									</div>
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g3.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g3.jpg' %}" alt=" " class="img-responsive">
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Bhopal</p>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane fade" id="playing" aria-labelledby="playing-tab">
+								<div class="w3_tab_img">
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g4.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g4.jpg' %}" alt=" " class="img-responsive">
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Indore</p>
+										</div>
+									</div>
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g5.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g5.jpg' %}" alt=" " class="img-responsive">
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Indore</p>
+										</div>
+									</div>
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g6.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g6.jpg' %}" alt=" " class="img-responsive">
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Indore</p>
+										</div>
+									</div>
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g7.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g7.jpg' %}" alt=" " class="img-responsive">
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Indore</p>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane fade" id="painting" aria-labelledby="painting-tab">
+								<div class="w3_tab_img">
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g1.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g1.jpg' %}" alt=" " class="img-responsive">
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Rewa </p>
+										</div>
+									</div>
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g2.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g2.jpg' %}" alt=" " class="img-responsive">
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Rewa</p>
+										</div>
+									</div>
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g3.jpg' %}" alt=" " class="img-responsive">
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property</h5>
+											<p>Rewa</p>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane fade" id="school" aria-labelledby="school-tab">
+								<div class="w3_tab_img">
+									<div class="col-sm-3 w3_tab_img_left">
+										<div class="demo">
+											<a class="cm-overlay" href="{% static 'myrmapp/images/g4.jpg' %}">
+												<figure class="imghvr-shutter-in-out-diag-2"><img src="{% static 'myrmapp/images/g4.jpg' %}" alt=" " class="img-responsive">
+												</figure>
+											</a>
+										</div>
+										<div class="agile-gallery-info">
+											<h5>Property18</h5>
+											<p>Bilaspur</p>
+										</div>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</div>
+				</div>
+			
+			</div>
+		</div>
+		<!-- //gallery -->
+		<!-- testimonials -->
+		<div class="testimonials agents testmo jarallax" id="test">
+			<div class="container">
+				<div class="wthree-tittle">
+					  <h3 class="agile_title one two">Massege</h3>
+					  <p class="w3l-agile-its-title second">Find Your Dream Room</p>
+			    </div>
+				<ul id="flexiselDemo1">			
+					<li>
+						<div class="wthree_testimonials_grid_main">
+							<div class="wthree_testimonials_grid">
+								<h4>What Client Say</h4>
+								<p>Donec laoreet eu purus eu viverra. Vestibulum sed convallis massa,
+									eu aliquet massa. Suspendisse lacinia rutrum tincidunt. Integer id erat porta, 
+									convallis tortor a, ullamcorper magna.</p>
+								<div class="wthree_testimonials_grid_pos">
+									<img src="{% static 'myrmapp/images/t1.jpg' %}" alt=" " class="img-responsive" />
+								</div>
+							</div>
+							<div class="wthree_testimonials_grid1">
+								<h5>Mark Henry</h5>
+								<p>Client</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="wthree_testimonials_grid_main">
+							<div class="wthree_testimonials_grid">
+								<h4>We have agents with experience</h4>
+								<p>Donec laoreet eu purus eu viverra. Vestibulum sed convallis massa,
+									eu aliquet massa. Suspendisse lacinia rutrum tincidunt. Integer id erat porta, 
+									convallis tortor a, ullamcorper magna.</p>
+								<div class="wthree_testimonials_grid_pos">
+									<img src="{% static 'myrmapp/images/t2.jpg' %}" alt=" " class="img-responsive" />
+								</div>
+							</div>
+							<div class="wthree_testimonials_grid1">
+								<h5>Linda Carl</h5>
+								<p>Client</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="wthree_testimonials_grid_main">
+							<div class="wthree_testimonials_grid">
+								<h4>What Client Say</h4>
+								<p>Donec laoreet eu purus eu viverra. Vestibulum sed convallis massa,
+									eu aliquet massa. Suspendisse lacinia rutrum tincidunt. Integer id erat porta, 
+									convallis tortor a, ullamcorper magna.</p>
+								<div class="wthree_testimonials_grid_pos">
+									<img src="{% static 'myrmapp/images/t1.jpg' %}" alt=" " class="img-responsive" />
+								</div>
+							</div>
+							<div class="wthree_testimonials_grid1">
+								<h5>Michael Paul</h5>
+								<p>Client</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+						
+			</div>
+		</div>
+
+	<!-- //testimonials -->
+	<!-- mail -->
+					<div class="mail" id="contact">
+						<div class="mail-grid1">
+						<div class="container">	
+							<div class="wthree-tittle">
+								  <h3 class="agile_title one">Contact Us</h3>
+								  <p class="w3l-agile-its-title">Find Your Dream Home</p>
+							   </div>
+							   <div class="w3-agile_info">
+								<div class="col-md-4 mail-agileits-w3layouts">
+									<i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>
+									<div class="contact-right">
+										<p>Mobile</p><span><a href="tel:8962269272">
+						</i>+91 8962269272</li>	</a></span>
+									</div>
+								</div>
+								<div class="col-md-4 mail-agileits-w3layouts">
+									<i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+									<div class="contact-right">
+										<p>Email</p><a href="mailto:cpoonam47@gmail.com">cpoonam47@gmail.com</a>
+									</div>
+								</div>
+								<div class="col-md-4 mail-agileits-w3layouts">
+									<i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>
+									<div class="contact-right">
+										<p>Address</p><span>Shantinagar Palasia indore</span>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+								 </div>
+							</div>
+						</div>
+						
+				<div class="col-md-7 map ">
+					<div style="width: 100%"><iframe width="100%" height="450" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=udayhostel%20shantinagar%20manormaganj%20indore+(roomrental)&ie=UTF8&t=&z=14&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.mapsdirections.info/en/custom-google-maps/">Create Google Map</a> by <a href="https://www.mapsdirections.info/en/">Measure area on map</a></iframe></div><br />
+				</div>
+						<div class="col-md-5 mail-grid1-form ">
+							<h3 class="tittle-w3"><span>Send a </span>Message</h3>
+							<form action="/myrmapp/massage/" method="post">
+								{% csrf_token %}
+								<input type="text" name="name" placeholder="Your Name" required="" />
+								<input type="text" name="phone" placeholder="Your Phone" required="" />
+								<input type="email" name="email" placeholder="your Email" required="" />
+								<textarea name="describe" placeholder="Your Message...." required=""></textarea>
+								<input type="submit" value="Submit">
+							</form>
+							<h2 style="background-color: lightblue; border: 2px solid black; border-radius: 5px; margin-top: 5px;">{{ resultmsg }}</h2>
+						</div>
+						
+						<div class="clearfix"></div>
+					</div>
+				<!-- //mail -->
+	<!-- footer -->
+	<!--
+		<div class="footer jarallax" >
+			<div class="container">
+				<div class="col-md-4 agileinfo_footer_grid">
+					<h3>About Us</h3>
+					<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<form action="/myrmapp/sendmail/" method="post">
+						{% csrf_token %}
+						<input type="email" name="email" placeholder="Email" required="">
+						<input type="submit" value="Send">
+					</form>
+					<h2 style="background-color: lightblue; border: 2px solid black; border-radius: 5px; margin-top: 5px;">{{ result }}</h2>
+				</div>
+				<div class="col-md-4 agileinfo_footer_grid">
+					<h3>Twitter Posts</h3>
+					<ul class="w3agile_footer_grid_list">
+						<li>This is very good service provide <a href="#">http://kangaroosoftware.net</a> Mayank, indore.
+							<span>02 days ago</span></li>
+						<li>Itaque earum rerum hic tenetur a sapiente delectus <a href="#">http://conceptsolutionind.com</a> ut aut
+							voluptatibus.<span>03 days ago</span></li>
+					</ul>
+				</div>
+				<div class="col-md-4 agileinfo_footer_grid">
+					<h3>Social Media</h3>
+					<ul class="agileinfo_social_icons">
+						<li><a href="https://www.facebook.com/" class="facebook"><span><i class="fa fa-facebook" aria-hidden="true"></i></span>Facebook</a></li>
+						<li><a href="https://twitter.com/" class="twitter"><span><i class="fa fa-twitter" aria-hidden="true"></i></span>Twitter</a></li>
+						<li><a href="https://accounts.google.com/" class="google"><span><i class="fa fa-google-plus" aria-hidden="true"></i></span>Google+</a></li>
+						<li><a href="https://www.linkedin.com/feed/" class="instagram"><span><i class="fa fa-linkedin" aria-hidden="true"></i></span>linkedin</a></li>
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+	-->
+	<!-- //footer -->
+	<!-- copy-right -->
+		<div class="w3lagile_copy_right">
+				 <p>© 2018 kangaroosoftware. All Rights Reserved | Design by <a href="https://kangaroosoftware.net/" target="_blank">poonamchandra</a></p>
+		</div>
+	<!-- //copy-right -->
+	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	 <!-- js -->
+	<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+	<!-- skills -->
+
+	<script>
+	        $(function(){ 
+
+	  // parameters
+	  // image height
+	  var images_height = '500px';
+	  // array of images
+	  var images_url = [
+	      'images/banner1.jpg',
+	      'images/banner2.jpg',
+	      'images/banner3.jpg'
+	  ];
+	  var images_count = images_url.length;
+
+	  // create nodes
+	  for(var j=0;j<images_count+1;j++){
+	      $('.banner ul').append('<li></li>')
+	  }
+
+	  // pagination
+	  for(var j=0;j<images_count;j++){
+	      if(j==0){
+	          $('.banner ol').append('<li class="current"></li>')
+	      }else{
+	          $('.banner ol').append('<li></li>')
+	      }
+	  }
+
+	  // convert images into backgrounds
+	  $('.banner ul li').css('background-image','url('+images_url[0]+')');
+	  
+	  $.each(images_url,function(key,value){
+	      $('.banner ul li').eq(key).css('background-image','url('+value+')');
+	  });
+
+	  $('.banner').css('height',images_height);
+
+	  $('.banner ul').css('width',(images_count+1)*100+'%');
+
+	  $('.banner ol').css('width',images_count*20+'px');
+	  $('.banner ol').css('margin-left',-images_count*20*0.5-10+'px');
+
+	  var num = 0;
+
+	  var window_width = $(window).width();
+
+	  $(window).resize(function(){
+	      window_width = $(window).width();
+	      $('.banner ul li').css({width:window_width});
+	      clearInterval(timer);
+	      nextPlay();
+	      timer = setInterval(nextPlay,2000);
+	  });
+
+	  $('.banner ul li').width(window_width);
+
+	  // pagination dots
+	  $('.banner ol li').mouseover(function(){
+	      $(this).addClass('current').siblings().removeClass('current');
+	      var i = $(this).index();
+	      //console.log(i);
+	      $('.banner ul').stop().animate({left:-i*window_width},500);
+	      num = i;
+	  });
+
+	  // autoplay
+	  var timer = null;
+
+	  function prevPlay(){
+	      num--;
+	      if(num<0){
+	          $('.banner ul').css({left:-window_width*images_count}).stop().animate({left:-window_width*(images_count-1)},500);
+	          num=images_count-1;
+	      }else{
+	          $('.banner ul').stop().animate({left:-num*window_width},500);
+	      }
+	      if(num==images_count-1){
+	          $('.banner ol li').eq(images_count-1).addClass('current').siblings().removeClass('current');
+	      }else{
+	          $('.banner ol li').eq(num).addClass('current').siblings().removeClass('current');
+
+	      }
+	  }
+
+	  function nextPlay(){
+	      num++;
+	      if(num>images_count){
+	          $('.banner ul').css({left:0}).stop().animate({left:-window_width},500);
+	          num=1;
+	      }else{
+	          $('.banner ul').stop().animate({left:-num*window_width},500);
+	      }
+	      if(num==images_count){
+	          $('.banner ol li').eq(0).addClass('current').siblings().removeClass('current');
+	      }else{
+	          $('.banner ol li').eq(num).addClass('current').siblings().removeClass('current');
+
+	      }
+	  }
+
+	  timer = setInterval(nextPlay,2000);
+
+	  // auto pause on mouse enter
+	  $('.banner').mouseenter(function(){
+	      clearInterval(timer);
+	      $('.banner i').fadeIn();
+	  }).mouseleave(function(){
+	      timer = setInterval(nextPlay,2000);
+	      $('.banner i').fadeOut();
+	  });
+
+	  // goto next
+	  $('.banner .right').click(function(){
+	      nextPlay();
+	  });
+
+	  // back to previous
+	  $('.banner .left').click(function(){
+	      prevPlay();
+	  });
+
+	});
+	    </script>
+		<!-- Stats-Number-Scroller-Animation-JavaScript -->
+					<script src="{% static 'myrmapp/js/waypoints.min.js' %}"></script> 
+					<script src="{% static 'myrmapp/js/counterup.min.js' %}"></script> 
+					<script>
+						jQuery(document).ready(function( $ ) {
+							$('.counter').counterUp({
+								delay: 100,
+								time: 1000
+							});
+						});
+					</script>
+			<!-- //Stats-Number-Scroller-Animation-JavaScript -->
+		<script src="{% static 'myrmapp/js/responsiveslides.min.js' %}"></script>
+
+		<script>
+									// You can also use "$(window).load(function() {"
+									$(function () {
+									  // Slideshow 4
+									  $("#slider4").responsiveSlides({
+										auto: true,
+										pager:true,
+										nav:false,
+										speed: 500,
+										namespace: "callbacks",
+										before: function () {
+										  $('.events').append("<li>before event fired.</li>");
+										},
+										after: function () {
+										  $('.events').append("<li>after event fired.</li>");
+										}
+									  });
+								
+									});
+								 </script>
+
+		
+				<script src="{% static '/myrmapp/js/jquery.tools.min.js' %}"></script>
+				<script src="{% static '/myrmapp/js/jquery.mobile.custom.min.js' %}"></script>
+				<script src="{% static '/myrmapp/js/jquery.cm-overlay.js' %}"></script>
+				<script>
+					$(document).ready(function(){
+						$('.cm-overlay').cmOverlay();
+					});
+				</script>
+
+
+
+	<!-- start-smoth-scrolling -->
+	<script type="text/javascript" src="{% static '/myrmapp/js/move-top.js' %}"></script>
+	<script type="text/javascript" src="{% static '/myrmapp/js/easing.js' %}"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+	</script>
+	<!-- start-smoth-scrolling -->
+		<script src="{% static 'myrmapp/js/jarallax.js' %}"></script>
+		<script src="{% static 'myrmapp/js/SmoothScroll.min.js' %}"></script>
+		<script type="text/javascript">
+			/* init Jarallax */
+			$('.jarallax').jarallax({
+				speed: 0.5,
+				imgWidth: 1366,
+				imgHeight: 768
+			})
+		</script>
+		
+			
+	<script type="text/javascript">
+								$(window).load(function() {
+									$("#flexiselDemo1").flexisel({
+										visibleItems:1,
+										animationSpeed: 1000,
+										autoPlay: true,
+										autoPlaySpeed: 3000,    		
+										pauseOnHover: true,
+										enableResponsiveBreakpoints: true,
+										responsiveBreakpoints: { 
+											portrait: { 
+												changePoint:480,
+												visibleItems: 1
+											}, 
+											landscape: { 
+												changePoint:640,
+												visibleItems:1
+											},
+											tablet: { 
+												changePoint:768,
+												visibleItems: 1
+											}
+										}
+									});
+									
+								});
+						</script>
+						<script type="text/javascript" src="{% static 'myrmapp/js/jquery.flexisel.js' %}"></script>
+	<!-- //js -->
+	 
+		<script src="{% static 'myrmapp/js/bootstrap.js' %}"></script>
+	<!-- //for bootstrap working -->
+	<!-- here stars scrolling icon -->
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/*
+					var defaults = {
+					containerID: 'toTop', // fading element id
+					containerHoverID: 'toTopHover', // fading element hover id
+					scrollSpeed: 1200,
+					easingType: 'linear' 
+					};
+				*/
+									
+				$().UItoTop({ easingType: 'easeOutQuart' });
+									
+				});
+		</script>
+	<!-- //here ends scrolling icon -->
+	</body>
+</html>

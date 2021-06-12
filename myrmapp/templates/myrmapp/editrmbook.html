@@ -1,0 +1,20 @@
+<form action="/myrmapp/bookingdone/" method="post">
+					 {% csrf_token %}
+					 <br>
+					 <br>
+				     <h2>Select Location :</h2>
+				     <br><br>
+				     Room id :
+				     <input type="text" name="txtloc" value={{ f.id }}>
+				     Customer id :	
+				     <input type="text" name="uname" value={{ f.id }}>
+				     
+				     Booking date :
+				     <input type="date" name="date">
+				     <br>
+				     <br>
+				     <input type="submit" name="btnsubmit" value="Booking here" id="input">
+				</form>
+
+
+		

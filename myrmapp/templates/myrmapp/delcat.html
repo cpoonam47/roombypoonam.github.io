@@ -1,0 +1,36 @@
+<style type="text/css">
+	input{
+		height: 35px;
+		padding-left: 15px;
+		font-size: 16px;
+		border: 2px solid yellow;
+		border-radius: 5px;
+	}
+	section{
+		font-size: 20px;
+		font-family: verdana;
+	}
+</style>
+<section>
+	<center>
+		<h1>Are you Sure you want to Delete the Category??</h1>
+		<hr>
+		<br><br>
+		<div style="border: 2px solid red;padding: 20px; margin: 10px; background-color: gray">
+			<br><br>
+			<form action="/myrmapp/deletecatcode/" method="post">
+				{% csrf_token %}
+				<input type="text" name="txtid" value={{f.id}} />
+				<br>
+				<br>
+				<input type="text" name="txtuser" value={{f.category_name}} />
+				<br>
+				<br>
+
+
+				<input type="submit" name="btnsubmit" value="Delete Category From Here" />
+			</form>
+		</div>
+	</center>
+</section>
+

@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Customer Password Change Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- fonts -->
+	{% load staticfiles %}
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+	<!-- /fonts -->
+	<!-- css -->
+	<link href="{% static 'registration/css/bootstrap.css' %}" rel="stylesheet" type='text/css' media="all" />
+	<link href="{% static 'registration/css/style.css' %}" rel="stylesheet" type='text/css' media="all" />
+	<!-- /css -->
+</head>
+
+<body>
+
+	<div class="content-agileits">
+		<h1 class="title">Customer Password Change Form</h1>
+		<div class="left">
+			<form action="/myrmapp/cforgotpasscode/" method="post" data-toggle="validator">
+				{% csrf_token %}
+				<div class="form-group">
+					<label for="firstname" class="control-label">Customer Id:</label>
+					<input type="text" name="id"  class="form-control" id="firstname"  data-error="Enter Customer Id" required value={{f.id}}>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+					<label for="inputEmail" class="control-label">Email:</label>
+					<input type="email" name="email"  class="form-control" id="inputEmail" placeholder="Email" data-error="This email address is invalid" required value={{f.email}}>
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword" class="control-label">Password:</label>
+					<div class="form-inline row">
+						<div class="form-group col-sm-6 agileits-w3layouts">
+							<input type="password" name="password"  data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required value={{f.password}}>
+							<div class="help-block">Minimum of 6 characters</div>
+						</div>
+						<div class="form-group col-sm-6 w3-agile">
+							<input type="password" class="form-control"  id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Password, these don't match"
+							    placeholder="Confirm Password" required value={{f.password}}>
+							<div class="help-block with-errors"></div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<button type="submit" class="btn btn-lg" name="btnsubmit">submit</button>
+				</div>
+			</form>
+			<h2> {{ result }} </h2>
+		</div>
+		<div class="right"></div>
+		<div class="clear"></div>
+	</div>
+	<p class="copyright-w3ls">© 2018 Owner Registration Form. All Rights Reserved | Design by
+		poonam chandra
+	</p>
+	<!-- js -->
+	<script src="{% static 'registration/js/jquery-2.1.4.min.js' %}"></script>
+	<!-- //js -->
+
+	<script src="{% static 'registration/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'registration/js/validator.min.js' %}"></script>
+	<!-- /js files -->
+</body>
+
+</html>

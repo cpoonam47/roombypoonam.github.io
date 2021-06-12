@@ -1,0 +1,13 @@
+﻿body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+body,td,th {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color: #1e4c7e;
+}
+

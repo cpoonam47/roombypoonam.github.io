@@ -1,0 +1,256 @@
+﻿body, td, th {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color: #1e4c7e;
+}
+.title1 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color: #1e4c7e;
+	font-weight:bold;
+}
+.title2 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color: #ff7200;
+	font-weight:bold;
+}
+.dropdown1 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color: #1e4c7e;
+	width:125px;
+	height:18px;
+}
+.tablebg1 {
+	background:#f8fdff;
+	border:solid 1px #eef2f4;
+}
+.textstyle {
+	color:#12408D;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	margin-bottom:0;
+	margin-left:0;
+	margin-right:0;
+	margin-top:0;
+	padding-bottom:0;
+	padding-left:0;
+	padding-right:0;
+	padding-top:0;
+}
+.buttonstyle1 {
+	background:url(../images/button_n1.png) no-repeat;
+	border:0px;
+	color:#000000;
+	cursor:pointer;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	width:60px;
+	height:23px;
+	margin:0px;
+	padding:0px;
+}
+.buttonstyle2 {
+	background:url(../images/orange.png) no-repeat;
+	border:0px;
+	color:#000000;
+	cursor:pointer;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	width:124px;
+	height:33px;
+	margin:0px;
+	padding:0px;
+}
+.buttonstyle3 {
+	background:url(../images/button2.png) no-repeat;
+	border:0px;
+	color:#000000;
+	cursor:pointer;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	width:72px;
+	height:29px;
+	margin:0px;
+	padding:0px;
+	vertical-align:top;
+}
+
+.buttonstyle5 {
+	background:url(../images/button1a.png) no-repeat;
+	border:0px;
+	color:#000000;
+	cursor:pointer;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	width:120px;
+	height:23px;
+	margin:0px;
+	padding:0px;
+}
+
+
+.buttonstyle6 {
+ background:url(../images/button1a.png)  no-repeat;
+ color:#000000;
+ cursor:pointer;
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:11px;
+ text-align:center;
+ padding:4px 15px 10px 15px;
+ text-decoration:none; 
+ 
+}
+
+.buttonstyle6a {
+ background:url(../images/button1b.png)  no-repeat;
+ color:#000000;
+ cursor:pointer;
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:10px;
+ text-align:center;
+ padding:4px 19px 10px 15px;
+ text-decoration:none; 
+ 
+}
+
+
+.buttonstyle7 {
+	background:url(../images/button1b.png) no-repeat;
+	border:0px;
+	color:#000000;
+	cursor:pointer;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	width:120px;
+	height:20px;
+	margin:0px;
+	padding:0px;
+}
+.buttonstyle8 {
+	background:url(../images/proceed_btn.png) no-repeat;
+	border:0px;
+	color:#000000;
+	cursor:pointer;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	width:124px;
+	height:33px;
+	margin:0px;
+	padding:0px;
+}
+
+.buttonstyle9 {
+	background:url(../images/next.png) no-repeat;
+	border:0px;
+	color:#000000;
+	cursor:pointer;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	width:124px;
+	height:33px;
+	margin:0px;
+	padding:0px;
+}
+
+.buttonstyle_excl {
+	background:url(../images/button_bg.png);
+	background-repeat:no-repeat;
+	background-position:2px left;
+	color:#000000;
+	cursor:pointer;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	width:195px;
+	height:50px;
+	margin:0px;
+	padding-top:6px;
+	padding-left:15px;
+	padding-right:18px;
+	padding-bottom:6px; 
+	border:0px solid red;
+	text-decoration:none;}
+	
+.textinputfield1 {
+	color:#12408D;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	height:21px;
+	margin:0;
+}
+.mobile {
+	background:url(../images/mobile.png) bottom left no-repeat;
+	border:0px;
+	width:236px;
+	word-wrap:break-word;
+	height:139px;
+}
+.margin {
+	_margin-left:0px;
+	display:inline;
+	position:relative;
+	margin:0px;
+	padding:0px
+}
+
+.apidiv {
+	background:#E9F6FE; 
+	border: solid 1px #cccccc; 
+	padding:5px; 
+	margin-bottom:2px; 
+	text-decoration: underline; 
+	cursor:pointer;
+	
+	}
+	
+.apidiv:hover {
+	background:#E9F6FE; 
+	border: solid 1px #cccccc; 
+	padding:5px; 
+	margin-bottom:2px; 
+	text-decoration: none; 
+	cursor:pointer;
+	
+	}
+.ModelPopupBg
+{
+ position: absolute;
+ top: 0px;
+ bottom: 0px;
+ left: 0px;
+ right: 0px;
+ overflow: hidden;
+ padding: 0;
+ margin: 0;
+ filter: alpha(opacity=50);
+ opacity: 0.5;
+ z-index: 10000;
+}
+
+
+.ModelPopupFn
+{
+ position: absolute;
+ top: 40%;
+ left: 33%;
+ padding: 10px;
+ width: 330px;
+ z-index: 10001;
+ background-color: #fff;
+ 
+}
+.ModelPopupFn1
+{
+ position: absolute;
+ top: 30%;
+ left: 52%;
+ bottom: 80%;
+ padding: 10px;
+ height: 150px;
+ width: 430px;
+ z-index: 10001;
+ filter: alpha(opacity=45);
+ opacity: 0.5;
+ background-color:#fff; /* #fff; #C0C0C0 ;#CCEEFF*/
+}

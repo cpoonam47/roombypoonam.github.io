@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>View Customer Record</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static  '/myrmapp/style.css/' %} ">
+		<link href="{% static '/myrmapp/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+		<link rel="stylesheet" href="{% static '/animation/css/animate.css' %}">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+	</head>
+	<body style="background-color: gray; border: 2px solid red;">
+		<div class="container-flued">
+			<div class="row" >
+				<div class="col-sm-12 col-md-12">
+					<br>
+					<h1 align="center">Welcome to Room RentaL Views Customer Record</h1>
+					
+				</div>
+			</div>
+			<div class="row" style="padding: 20px;">
+				<div class="col-sm-12 col-md-12 col- " >
+					<table class="table table-hover wow wobble  ">
+					    
+					    <tbody style="background-color: lightgray; color: black; border: 2px dashed blue; border-bottom-right-radius: 5px;" class="wow jello">
+		      				{% if f %}
+							   
+							    {% for q in f %}
+							    <hr>
+								    <tr><th>ID</th>
+								        <td>{{ q.id }}</td>
+								    </tr>
+								    <tr>
+								    	<th>Username</th>
+								    	<td>{{ q.username }}</td>
+								    </tr>
+								    <tr>
+								    	<th>Email</th>
+								      	<td>{{ q.email }}</td>
+								    </tr>
+								    <tr>
+								    	<th>Mobile</th>
+								        <td>{{ q.mobile }}</td>
+								    </tr>
+								    <tr>
+								    	<th>Gender</th>
+								        <td>{{ q.gender }}</td>
+								    </tr>
+								    <tr>
+								    	<th>Address</th>
+								        <td>{{ q.address }}</td>
+								    </tr>
+								    <tr>
+								    	<th>Country</th>
+								        <td>{{ q.country }}</td>
+								    </tr>
+								    <tr>
+								    	<th>State</th>
+								        <td>{{ q.state }}</td>
+								    </tr>
+								    <tr>
+								    	<th>City</th>	
+								        <td>{{ q.city }}</td>
+								    </tr>
+								    <tr>
+								    	<th>Registration date</th>
+								        <td>{{ q.reg_date }}</td>
+								    </tr>
+								    <tr>	
+								        <th>Operation</th>
+								        <td>
+								        <button >
+								        	<a href="/myrmapp/{{ q.id }}/editcus/" style="text-decoration: none;">Edit Customer</a>
+								        </button> 
+								        <button><a href="/myrmapp/{{ q.id }}/cforgotpass/" style="text-decoration: none;">Change Password</a>
+								        </button>
+								        <button><a href="/myrmapp/{{ q.id }}/deletecus/" style="text-decoration: none;">Delete Customer</a>
+								        </button>
+								        	</td>
+								    </tr>
+							    	{% endfor %}
+								{% else %}
+							    <p>No Customer profile are available.</p>
+								{% endif %}
+								<button>
+									<a href="/myrmapp/custodash">Home Dashboard</a>
+								</button>
+						</tbody>
+		 			 </table>
+		 			 <hr>
+				</div>
+			</div>
+		</div>
+		<script src="{% static 'animation/js/wow.min.js' %}"></script>
+		<script>
+			new WOW().init();
+		</script>
+	
+	</body>
+</html>

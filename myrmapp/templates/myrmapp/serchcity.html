@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Search Room Details</title>
+		<style>
+		* {
+		  margin: 0;
+		  padding: 0;
+		  outline: 0;
+		  -webkit-box-sizing: border-box;
+		  -moz-box-sizing: border-box;
+		  box-sizing: border-box;
+		}
+
+		body {
+		  font-family:cursive;
+		  background-color: #222;
+		  color: #0066B2;
+		  font-size: 14px;
+		  line-height: 20px;
+		  letter-space: .05px;
+		}
+
+		.hidden { display: none; }
+
+
+		#posts {
+		  max-width: 1200px;
+		  margin: 0 auto;
+		}
+
+		#posts .post {
+		  width: 25%;
+		  float: left;
+		  height: 280px;
+		  overflow: hidden;
+		  text-align: center;
+		  cursor: pointer;
+		  position: relative;
+		  z-index: 1;
+		  display: inline-block;
+		  background: #2e5d5a;
+		  color: yellow;
+		}
+
+		#posts .post img {
+		  position: relative;
+		  display: block;
+		  width: -webkit-calc(100% + 60px);
+		  width: calc(100% + 60px);
+		  opacity: 1;
+		  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+		  transition: opacity 0.35s, transform 0.35s;
+		  -webkit-transform: translate3d(-30px, 0, 0) scale(1.12);
+		  transform: translate3d(-30px, 0, 0) scale(1.12);
+		  -webkit-backface-visibility: hidden;
+		  backface-visibility: hidden;
+		  min-height: 100%;
+		}
+
+		#posts .post:hover img {
+		  opacity: 0.5;
+		  -webkit-transform: translate3d(0, 0, 0) scale(1);
+		  transform: translate3d(0, 0, 0) scale(1);
+		}
+
+		#posts .post .post-content {
+		  padding: 2em;
+		  color:white;
+		  text-transform: uppercase;
+		  font-size: 1.25em;
+		  -webkit-backface-visibility: hidden;
+		  backface-visibility: hidden;
+		}
+
+		#posts .post .post-content::before,
+		#posts .post .post-content::after { pointer-events: none; }
+
+		#posts .post .post-content,
+		#posts .post a {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100%;
+		}
+
+		#posts .post a {
+		  z-index: 1000;
+		  text-indent: 200%;
+		  white-space: nowrap;
+		  font-size: 0;
+		  opacity: 0;
+		}
+
+		#posts .post h2 {
+		  word-spacing: -0.15em;
+		  font-weight: 300;
+		  position: absolute;
+		  right: 0;
+		  bottom: 0;
+		  padding: 1em 1.2em;
+		}
+
+		#posts .post h2,
+		#posts .post p { margin: 0; }
+
+		#posts .post p {
+		  letter-spacing: 1px;
+		  font-size: 68.5%;
+		  padding: 0 10px 0 0;
+		  width: 50%;
+		  border-right: 1px solid #fff;
+		  text-align: right;
+		  opacity: 0;
+		  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+		  transition: opacity 0.35s, transform 0.35s;
+		  -webkit-transform: translate3d(-40px, 0, 0);
+		  transform: translate3d(-40px, 0, 0);
+		}
+
+		#posts .post:hover p {
+		  opacity: 1;
+		  -webkit-transform: translate3d(0, 0, 0);
+		  transform: translate3d(0, 0, 0);
+		}
+		 @media screen and (max-width: 600px) {
+
+		#posts .post { width: 50%; }
+		}
+		</style>
+		{% load staticfiles %}
+		 <link rel="stylesheet" href="{% static '/animation/css/animate.css' %}">
+		
+	</head>
+
+	<body>
+		<br><br>
+		<h1 align="center">Search Room Details</h1>
+		<div class="jquery-script-ads" align="center"><script type="text/javascript">
+		
+		</script>
+		<script type="text/javascript"
+		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script></div>
+		<br><br>
+
+		<!-- Demo images from behance.net -->
+		{% if f %}
+			{% for q in f %}
+		
+		<div id='posts'>
+		  <div class='post sport'><img src={{ q.roomimg }} class="wow zoomInLeft"/>
+			<div class='post-content'>
+			 	<h4>Room Details</h4>
+			 	<h2 style="color: orange;">Booking click</h2>
+			 	<p>Room id :{{ q.id }}</p>
+			 	<p>owner name:{{ q.ownemail  }}</p>
+			 	<p>Title:{{q.roomtitle }}</p>
+				<a href="/myrmapp/{{ q.id }}/booking/">Booking</a>
+				<p>Room details:{{ q.roomdetails }}</p>
+				<p>Location:{{ q.landmark }} </p>
+				 <p>City:{{ q.city }}</p>
+				<p>Rent:{{ q.price }}</p>
+				<p>Condition:{{ q.status }}</p>
+			 </div>
+		  </div>
+		 
+		  {% endfor %}
+			{% else %}
+				<p>No Room  are available.</p>
+			{% endif %}
+		</div>
+		<div class='hidden'></div>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+		<script>
+		/* Jquery Portfolio wall by Mohamed Abo El-Ghranek - fb.com/midoghranek no need to plugins */
+
+		$(document).ready(function(){
+
+		  $('.hidden').css('display','none');
+
+		  $( "#filter button" ).each(function() {
+
+			$(this).on("click", function(){
+
+				 var filter = $(this).attr('class');         
+
+			  if ( $(this).attr('class') == 'all' ) {
+				 $('.hidden').contents().appendTo('#posts').hide().show('slow');
+				 $( "#filter button" ).removeClass('active');
+				 $(this).addClass('active');
+				 $("#filter button").attr("disabled", false);
+				 $(this).attr("disabled", true);
+			  }
+			  else {
+				 $('.post').appendTo('.hidden');
+				 $('.hidden').contents().appendTo('#posts').hide().show('slow');
+				 $('.post:not(.' + filter + ')').appendTo('.hidden').hide('slow');
+				 $( "#filter button" ).removeClass('active');
+				 $(this).addClass('active');
+				 $("#filter button").attr("disabled", false);
+				 $(this).attr("disabled", true);
+			  };
+			  
+			  });
+
+		  });
+
+		});
+		</script>
+		<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-36251023-1']);
+		  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+
+		<script src="{% static 'animation/js/wow.min.js' %}"></script>
+		<script>
+			new WOW().init();
+		</script>
+	</body>
+</html>
